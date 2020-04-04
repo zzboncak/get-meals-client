@@ -90,16 +90,18 @@ class AddPage extends React.Component {
     render() {
 
         const nameError = this.validatePlaceName();
-        const contentError = this.validatePlaceAddress();
+        const addressError = this.validatePlaceAddress();
+        const cityError = this.validateCity();
+        const stateError = this.validateUsState();
 
         return (
-            <div className="add-place-form">
+            <div className="add-location-form">
                 <form onSubmit={e => this.handleSubmitAddPlace(e)}>
-                    <label htmlFor="add-place">Location name: </label>
+                    <label htmlFor="add-location">Location name: </label>
                     <input 
                         type="text" 
-                        placeholder="name of place" 
-                        name="add-place" 
+                        placeholder="name of location" 
+                        name="add-location" 
                         value={this.state.name.value} 
                         onChange={e => this.onNameChange(e.target.value)} 
                     />
@@ -115,14 +117,38 @@ class AddPage extends React.Component {
                         onChange={e => this.onAddressChange(e.target.value)} 
                     />
                     <br />
-                    {this.state.placeAddress.isTouched && contentError}
+                    {this.state.placeAddress.isTouched && addressError}
+                    <br />
+
+                    <label htmlFor='city-location'>City: </label>
+                    <textarea 
+                        name='city-location' 
+                        id='city-location' 
+                        value={this.state.city.value} 
+                        onChange={e => this.onCityChange(e.target.value)} 
+                    />
+                    <br />
+                    {this.state.city.isTouched && cityError}
+                    <br />
+
+                    <label htmlFor='us-state'>State: </label>
+                    <textarea 
+                        name='us-state' 
+                        id='us-state' 
+                        value={this.state.usState.value} 
+                        onChange={e => this.onUsStateChange(e.target.value)} 
+                    />
+                    <br />
+                    {this.state.usState.isTouched && stateError}
                     <br />
 
                     <button onClick={this.context.addNewPlace}
                         type="submit" 
                         disabled={
                             this.validatePlaceName() ||
-                            this.validatePlaceAddress()
+                            this.validatePlaceAddress() ||
+                            this.validateCity() ||
+                            this.validateUsState()
                     }>
                         Add this location
                     </button>
