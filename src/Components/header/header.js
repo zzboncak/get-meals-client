@@ -12,16 +12,13 @@ class Header extends Component {
                         GetMealz                   
                     </section>
                     <section>
-                        {/* <Link to='/'>Home Page</Link>*/}
-                        Home Page
+                        <Link to='/'>Home Page</Link>
                     </section>
                     <section> 
-                        {/* <Link to='/AboutUs'>About Us</Link> */}
-                        About Us
+                        <Link to='/about'>About Us</Link>
                     </section>
                     <section> 
-                        {/* <Link to='/AddLocation'>Add Location</Link> */}
-                        Add Location
+                        <Link to='/add-location'>Add Location</Link>
                     </section>
                 </div>
             </>
