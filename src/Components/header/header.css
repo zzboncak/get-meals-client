@@ -1,0 +1,11 @@
+.header-container {
+    border-bottom: solid 1px darkgray;
+    background-color: darkgray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+    min-height: 50px;
+    font-size: 16px;
+}
