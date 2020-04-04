@@ -177,6 +177,7 @@ class AddPage extends React.Component {
                     <br />
 
                     <label htmlFor='hours-of-operation'>Hours of Operation:</label>
+                    <br />
                     <label htmlFor='hours-start'>Open:</label>
                     <select>
                         <option>12:00AM</option>
