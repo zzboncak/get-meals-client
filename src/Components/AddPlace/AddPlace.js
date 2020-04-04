@@ -1,24 +1,32 @@
 import React from 'react'
-import './AddPage.css'
+// import './AddPage.css'
 
 class AddPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             name: {
-                value: "",
+                value: '',
                 isTouched: false
             },
             placeAddress: {
-                value: "",
+                value: '',
                 isTouched: false
             },
             city: {
-                value: "",
+                value: '',
                 isTouched: false
             },
             usState: {
-                value: "",
+                value: '',
+                isTouched: false
+            },
+            hourOfOperation: {
+                value: '',
+                isTouched: false
+            },
+            typeOfFood: {
+                value: '',
                 isTouched: false
             },
         }
@@ -31,7 +39,7 @@ class AddPage extends React.Component {
 
     handleSubmitAddPlace = (e) => {
         e.preventDefault();
-        let newPlace = {
+        let newName = {
             id: this.generatePlaceId().toString(),
             name: this.state.name,
             modified: new Date(),
@@ -63,27 +71,51 @@ class AddPage extends React.Component {
         });
     }
 
+    onHoursChange = (newHours) => {
+        this.setState({
+            hourOfOperation: newHours
+        });
+    }
+
+    onTypeChange = (newFood) => {
+        this.setState({
+            typeOfFood: newFood
+        });
+    }
+
     validatePlaceName() {
         if(this.state.name.length < 1){
-            return "You must enter a location name";
+            return 'You must enter a location name';
         }
     }
 
     validatePlaceAddress() {
-        if (this.state.placeAddress === "") {
-            return "Your address needs content";
+        if (this.state.placeAddress === '') {
+            return 'Your address needs content';
         }
     }
 
     validateCity() {
-        if (this.state.city === "") {
-            return "You need to enter a City"
+        if (this.state.city === '') {
+            return 'You need to enter a City'
         }
     }
 
     validateUsState() {
-        if (this.state.usState === "") {
-            return "You need to enter a State"
+        if (this.state.usState === '') {
+            return 'You need to enter a State'
+        }
+    }
+
+    validateHoursOfOperation() {
+        if (this.state.hourOfOperation === '') {
+            return 'You must select hours of operation'
+        }
+    }
+
+    validateTypeOfFood() {
+        if (this.state.typeOfFood === '') {
+            return 'You must select location type'
         }
     }
 
@@ -93,15 +125,17 @@ class AddPage extends React.Component {
         const addressError = this.validatePlaceAddress();
         const cityError = this.validateCity();
         const stateError = this.validateUsState();
+        const hoursError = this.validateHoursOfOperation();
+        const typeError = this.validateTypeOfFood();
 
         return (
-            <div className="add-location-form">
+            <div className='add-location-form'>
                 <form onSubmit={e => this.handleSubmitAddPlace(e)}>
-                    <label htmlFor="add-location">Location name: </label>
+                    <label htmlFor='add-location'>Location name: </label>
                     <input 
-                        type="text" 
-                        placeholder="name of location" 
-                        name="add-location" 
+                        type='text' 
+                        placeholder='name of location' 
+                        name='add-location' 
                         value={this.state.name.value} 
                         onChange={e => this.onNameChange(e.target.value)} 
                     />
@@ -121,7 +155,7 @@ class AddPage extends React.Component {
                     <br />
 
                     <label htmlFor='city-location'>City: </label>
-                    <textarea 
+                    <input 
                         name='city-location' 
                         id='city-location' 
                         value={this.state.city.value} 
@@ -132,7 +166,7 @@ class AddPage extends React.Component {
                     <br />
 
                     <label htmlFor='us-state'>State: </label>
-                    <textarea 
+                    <input
                         name='us-state' 
                         id='us-state' 
                         value={this.state.usState.value} 
@@ -142,13 +176,133 @@ class AddPage extends React.Component {
                     {this.state.usState.isTouched && stateError}
                     <br />
 
+                    <label htmlFor='hours-of-operation'>Hours of Operation:</label>
+                    <label htmlFor='hours-start'>Open:</label>
+                    <select>
+                        <option>12:00AM</option>
+                        <option>12:30AM</option>
+                        <option>1:00AM</option>
+                        <option>1:30AM</option>
+                        <option>2:00AM</option>
+                        <option>2:30AM</option>
+                        <option>3:00AM</option>
+                        <option>3:30AM</option>
+                        <option>4:00AM</option>
+                        <option>4:30AM</option>
+                        <option>5:00AM</option>
+                        <option>5:30AM</option>
+                        <option>6:00AM</option>
+                        <option>6:30AM</option>
+                        <option>7:00AM</option>
+                        <option>7:30AM</option>
+                        <option>8:00AM</option>
+                        <option>8:30AM</option>
+                        <option>9:00AM</option>
+                        <option>9:30AM</option>
+                        <option>10:00AM</option>
+                        <option>10:30AM</option>
+                        <option>11:00AM</option>
+                        <option>11:30AM</option>
+                        <option>12:00PM</option>
+                        <option>12:30PM</option>
+                        <option>1:00PM</option>
+                        <option>1:30PM</option>
+                        <option>2:00PM</option>
+                        <option>2:30PM</option>
+                        <option>3:00PM</option>
+                        <option>3:30PM</option>
+                        <option>4:00PM</option>
+                        <option>4:30PM</option>
+                        <option>5:00PM</option>
+                        <option>5:30PM</option>
+                        <option>6:00PM</option>
+                        <option>6:30PM</option>
+                        <option>7:00PM</option>
+                        <option>7:30PM</option>
+                        <option>8:00PM</option>
+                        <option>8:30PM</option>
+                        <option>9:00PM</option>
+                        <option>9:30PM</option>
+                        <option>10:00PM</option>
+                        <option>10:30PM</option>
+                        <option>11:00PM</option>
+                        <option>11:30PM</option>
+                    </select>
+                    <br />
+                    {this.state.hourOfOperation.isTouched && hoursError}
+                    <br />
+
+                    <label htmlFor='hours-end'>Close:</label>
+                    <select>
+                        <option>12:00AM</option>
+                        <option>12:30AM</option>
+                        <option>1:00AM</option>
+                        <option>1:30AM</option>
+                        <option>2:00AM</option>
+                        <option>2:30AM</option>
+                        <option>3:00AM</option>
+                        <option>3:30AM</option>
+                        <option>4:00AM</option>
+                        <option>4:30AM</option>
+                        <option>5:00AM</option>
+                        <option>5:30AM</option>
+                        <option>6:00AM</option>
+                        <option>6:30AM</option>
+                        <option>7:00AM</option>
+                        <option>7:30AM</option>
+                        <option>8:00AM</option>
+                        <option>8:30AM</option>
+                        <option>9:00AM</option>
+                        <option>9:30AM</option>
+                        <option>10:00AM</option>
+                        <option>10:30AM</option>
+                        <option>11:00AM</option>
+                        <option>11:30AM</option>
+                        <option>12:00PM</option>
+                        <option>12:30PM</option>
+                        <option>1:00PM</option>
+                        <option>1:30PM</option>
+                        <option>2:00PM</option>
+                        <option>2:30PM</option>
+                        <option>3:00PM</option>
+                        <option>3:30PM</option>
+                        <option>4:00PM</option>
+                        <option>4:30PM</option>
+                        <option>5:00PM</option>
+                        <option>5:30PM</option>
+                        <option>6:00PM</option>
+                        <option>6:30PM</option>
+                        <option>7:00PM</option>
+                        <option>7:30PM</option>
+                        <option>8:00PM</option>
+                        <option>8:30PM</option>
+                        <option>9:00PM</option>
+                        <option>9:30PM</option>
+                        <option>10:00PM</option>
+                        <option>10:30PM</option>
+                        <option>11:00PM</option>
+                        <option>11:30PM</option>
+                    </select>
+                    <br />
+                    {this.state.hourOfOperation.isTouched && hoursError}
+                    <br />
+
+                    <label htmlFor='location-type'>Location Type:</label>
+                    <select>
+                        <option>Restaurant</option>
+                        <option>Food Bank</option>
+                        <option>School</option>
+                        <option>Other Non-Profit</option>
+                    </select>
                     <button onClick={this.context.addNewPlace}
-                        type="submit" 
+                        type='submit' 
                         disabled={
                             this.validatePlaceName() ||
                             this.validatePlaceAddress() ||
                             this.validateCity() ||
-                            this.validateUsState()
+                            this.validateUsState() ||
+                            this.validateHoursOfOperation() ||
+                            this.validateTypeOfFood() 
                     }>
                         Add this location
                     </button>
@@ -159,10 +313,7 @@ class AddPage extends React.Component {
     }
 }
 
-AddPlace.propTypes ={
-    addNewPlace: PropTypes.func.isRequired,
-    togglePlaceFormView: PropTypes.func.isRequired
-}
+
     
 
 export default AddPage
