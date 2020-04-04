@@ -1,0 +1,10 @@
+.sidebar-container {
+    display: flex;
+    width: 300px;
+    background: rgb(156, 156, 156);
+    border-radius: 5px;
+}
+
+.sidebar-form {
+    padding: 10px;
+}
