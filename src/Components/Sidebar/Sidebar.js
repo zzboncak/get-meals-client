@@ -14,7 +14,7 @@ class Sidebar extends Component {
                             <input className="sidebar-input" type="text" placeholder="seattle" id="address" required />
                         </div>
 
-                        <div classname="results-within">
+                        <div className="results-within">
                             <label htmlFor="results-within">
                                 Show Results Within (Miles)
                             </label>

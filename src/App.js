@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.css';
-import Sidebar from './Components/Sidebar/sidebar'
+import Header from './Components/header/header';
+import Sidebar from './Components/Sidebar/sidebar';
+import Footer from './Components/footer/footer';
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <Sidebar />
-        <header className="App-header">
-          Get Meals
-        </header>
+        <Footer />
       </div>
     );
   }
