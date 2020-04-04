@@ -9,7 +9,15 @@ class AddPage extends React.Component {
                 value: "",
                 isTouched: false
             },
-            placeContent: {
+            placeAddress: {
+                value: "",
+                isTouched: false
+            },
+            city: {
+                value: "",
+                isTouched: false
+            },
+            usState: {
                 value: "",
                 isTouched: false
             },
@@ -27,7 +35,7 @@ class AddPage extends React.Component {
             id: this.generatePlaceId().toString(),
             name: this.state.name,
             modified: new Date(),
-            content: this.state.placeContent
+            content: this.state.placeAddress
         };
     }
     
@@ -37,28 +45,52 @@ class AddPage extends React.Component {
         });
     }
 
-    onContentChange = (newContent) => {
+    onAddressChange = (newAddress) => {
         this.setState({
-            placeContent: newContent
+            placeAddress: newAddress
+        });
+    }
+
+    onCityChange = (newCity) => {
+        this.setState({
+            city: newCity
+        });
+    }
+
+    onUsStateChange = (newState) => {
+        this.setState({
+            usState: newState
         });
     }
 
     validatePlaceName() {
         if(this.state.name.length < 1){
-            return "You must enter a name";
+            return "You must enter a location name";
         }
     }
 
-    validatePlaceContent() {
-        if (this.state.placeContent === "") {
-            return "Your location needs content";
+    validatePlaceAddress() {
+        if (this.state.placeAddress === "") {
+            return "Your address needs content";
+        }
+    }
+
+    validateCity() {
+        if (this.state.city === "") {
+            return "You need to enter a City"
+        }
+    }
+
+    validateUsState() {
+        if (this.state.usState === "") {
+            return "You need to enter a State"
         }
     }
 
     render() {
 
         const nameError = this.validatePlaceName();
-        const contentError = this.validatePlaceContent();
+        const contentError = this.validatePlaceAddress();
 
         return (
             <div className="add-place-form">
@@ -75,22 +107,22 @@ class AddPage extends React.Component {
                     {this.state.name.isTouched && nameError}
                     <br />
 
-                    <label htmlFor='place-content'>Location: </label>
+                    <label htmlFor='place-address'>Location: </label>
                     <textarea 
-                        name='place-content' 
-                        id='place-content' 
-                        value={this.state.placeContent.value} 
-                        onChange={e => this.onContentChange(e.target.value)} 
+                        name='place-address' 
+                        id='place-address' 
+                        value={this.state.placeAddress.value} 
+                        onChange={e => this.onAddressChange(e.target.value)} 
                     />
                     <br />
-                    {this.state.placeContent.isTouched && contentError}
+                    {this.state.placeAddress.isTouched && contentError}
                     <br />
 
                     <button onClick={this.context.addNewPlace}
                         type="submit" 
                         disabled={
                             this.validatePlaceName() ||
-                            this.validatePlaceContent()
+                            this.validatePlaceAddress()
                     }>
                         Add this location
                     </button>
