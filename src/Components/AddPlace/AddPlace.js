@@ -1,5 +1,5 @@
 import React from 'react'
-// import './AddPage.css'
+import './AddPlace.css'
 
 class AddPage extends React.Component {
     constructor(props) {

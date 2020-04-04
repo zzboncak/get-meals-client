@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/header/header';
+import Header from './Components/Header/Header';
 import HomePage from './Components/HomePage/HomePage';
-import Footer from './Components/footer/footer';
+import Footer from './Components/Footer/Footer';
 import { Route } from 'react-router-dom';
 import About from './Components/About/About'
 import AddPlace from './Components/AddPlace/AddPlace'

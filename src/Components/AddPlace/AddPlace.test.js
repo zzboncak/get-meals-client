@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Sidebar from './Sidebar';
+import AddPlace from './AddPlace';
 
-describe(`Sidebar component`, () => {
+describe(`AddPlace component`, () => {
   it('renders without crashing', () => {
       const div = document.createElement('div');
-      ReactDOM.render(<Sidebar />, div);
+      ReactDOM.render(<AddPlace />, div);
       ReactDOM.unmountComponentAtNode(div);
   });
 })
