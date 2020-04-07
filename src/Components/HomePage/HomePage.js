@@ -11,7 +11,7 @@ class HomePage extends React.Component {
                 <section className="main-view">
                     <Sidebar />
                     <div className="map">
-                        <img src={mapSample} alt="map sample"/>
+                        <img className="map" src={mapSample} alt="map sample"/>
                     </div>
                 </section>
             </div>
