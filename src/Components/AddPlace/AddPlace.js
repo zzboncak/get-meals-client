@@ -295,6 +295,10 @@ class AddPage extends React.Component {
                         <option>School</option>
                         <option>Other Non-Profit</option>
                     </select>
+                    <br />
+                    {this.state.typeOfFood.isTouched && typeError}
+                    <br />
+                    
                     <button onClick={this.context.addNewPlace}
                         type='submit' 
                         disabled={
