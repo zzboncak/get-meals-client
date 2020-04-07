@@ -8,7 +8,12 @@ exports[`Footer component renders the Header component as expected 1`] = `
     Thinkful Fullstack Capstone Project
   </section>
   <section>
-    About Us
+    <a
+      href="/About"
+      onClick={[Function]}
+    >
+      About Us
+    </a>
   </section>
 </div>
 `;

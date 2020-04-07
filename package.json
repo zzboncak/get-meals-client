@@ -13,8 +13,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "CI=true react-scripts test --colors",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "now --prod ./build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

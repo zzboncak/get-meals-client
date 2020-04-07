@@ -1,20 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header component renders the Header component as expected 1`] = `
-<div
-  className="header-container"
->
-  <section>
-    GetMealz
-  </section>
-  <section>
-    Home Page
-  </section>
-  <section>
-    About Us
-  </section>
-  <section>
-    Add Location
-  </section>
-</div>
+Array [
+  <div
+    className="header-container"
+  >
+    <section>
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        Get Meals
+      </a>
+    </section>
+    <section
+      className="header-fullscreen"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        Home Page
+      </a>
+    </section>
+    <section
+      className="header-fullscreen"
+    >
+      <a
+        href="/about"
+        onClick={[Function]}
+      >
+        About Us
+      </a>
+    </section>
+    <section
+      className="header-fullscreen"
+    >
+      <a
+        href="/add-location"
+        onClick={[Function]}
+      >
+        Add Location
+      </a>
+    </section>
+    <section
+      className="header-mobile"
+      onClick={[Function]}
+    >
+      <img
+        alt="menu button"
+        className="header-mobile"
+        src="menuHamburger.png"
+      />
+    </section>
+  </div>,
+  <div
+    className="header-mobile"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <ul
+      className="header-mobile"
+    >
+      <li>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Home Page
+        </a>
+      </li>
+      <li>
+        <a
+          href="/about"
+          onClick={[Function]}
+        >
+          About Us
+        </a>
+      </li>
+      <li>
+        <a
+          href="/add-location"
+          onClick={[Function]}
+        >
+          Add Location
+        </a>
+      </li>
+    </ul>
+  </div>,
+]
 `;
