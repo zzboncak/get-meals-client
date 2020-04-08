@@ -130,7 +130,7 @@ class AddPage extends React.Component {
 
         return (
             <div className='add-location-form'>
-                <form onSubmit={e => this.handleSubmitAddPlace(e)} className='plact-form__start'>
+                <form onSubmit={e => this.handleSubmitAddPlace(e)} className='place-form__start'>
                     <label htmlFor='add-location' className='place-form__location-name'>Location name: </label>
                     <input 
                         type='text' 
