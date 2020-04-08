@@ -8,9 +8,9 @@ class HomePage extends React.Component {
     render() {
         return (
             <div>
-                <section className="main-view">
+                <section className="main-view home-page__section">
                     <Sidebar />
-                    <div className="map">
+                    <div className="home-page__map">
                         <img className="map" src={mapSample} alt="map sample"/>
                     </div>
                 </section>
