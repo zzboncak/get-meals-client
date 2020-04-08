@@ -39,16 +39,16 @@ class Header extends Component {
                         <img className="header-section__button-img" src={menu} alt="menu button"/>
                     </section>
                 </div>
-                <div className="header-mobile" style={{display:this.state.headerMenuDisplay}}>
-                    <ul className="header-mobile">
+                <div className="header-mobile__links" style={{display:this.state.headerMenuDisplay}}>
+                    <ul className="header-mobile__list">
                         <li>
-                            <Link to='/' className='header-section__home-page'>Home Page</Link>
+                            <Link to='/' className='header-mobile__home-page'>Home Page</Link>
                         </li>
                         <li>
-                            <Link to='/about' className='heaer-section__about-us'>About Us</Link>
+                            <Link to='/about' className='heaer-mobile__about-us'>About Us</Link>
                         </li>
                         <li>
-                            <Link to='/add-location' className='header-section__add-location-cta'>Add Location</Link>
+                            <Link to='/add-location' className='header-mobile__add-location-cta'>Add Location</Link>
                         </li>
                     </ul>
                 </div>
