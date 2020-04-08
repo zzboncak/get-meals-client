@@ -10,7 +10,7 @@ class HomePage extends React.Component {
             <div>
                 <section className="main-view">
                     <Sidebar />
-                    <div className="map">
+                    <div className="home-page__map">
                         <img className="map" src={mapSample} alt="map sample"/>
                     </div>
                 </section>
