@@ -7,7 +7,7 @@ import mapSample from '../Util/map.png';
 class HomePage extends React.Component {
     render() {
         return (
-            <div>
+            <div className='home-page'>
                 <section className="main-view home-page__section">
                     <Sidebar />
                     <div className="home-page__map">
