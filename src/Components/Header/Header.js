@@ -22,22 +22,27 @@ class Header extends Component {
         return(
             <>
                 <div className="header-section__links">
-                    <section className="header-section__link">
+                    <div>
+                        <section className="header-section__link-homepage">
                         {/* Placeholder for logo */}
                         <Link to='/'>Get Meals</Link>                
-                    </section>
-                    <section className="header-section__link header-fullscreen">
-                        <Link to='/'>Home Page</Link>
-                    </section>
-                    <section className="header-section__link header-fullscreen"> 
-                        <Link to='/about'>About Us</Link>
-                    </section>
-                    <section className="header-section__link header-fullscreen"> 
-                        <Link to='/add-location'>Add Location</Link>
-                    </section>
-                    <section className="header-section__button header-mobile" onClick={this.menuDisplayChange}> 
-                        <img className="header-section__button-img" src={menu} alt="menu button"/>
-                    </section>
+                        </section>
+                    </div>
+                    <div className='header-section__nav'>
+                        <section className="header-section__link header-fullscreen">
+                            <Link to='/'>Home Page</Link>
+                        </section>
+                        <section className="header-section__link header-fullscreen"> 
+                            <Link to='/about'>About Us</Link>
+                        </section>
+                        <section className="header-section__link header-fullscreen"> 
+                            <Link to='/add-location'>Add Location</Link>
+                        </section>
+                        <section className="header-section__button header-mobile" onClick={this.menuDisplayChange}> 
+                            {/* <img className="header-section__button-img" src={menu} alt="menu button"/> */}
+                        </section>
+                        
+                    </div>
                 </div>
                 <div className="header-mobile__links" style={{display:this.state.headerMenuDisplay}}>
                     <ul className="header-mobile__list">
