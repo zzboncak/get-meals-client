@@ -4,6 +4,15 @@
         padding: 8px 16px;
 }
 
+/* Link {
+    text-decoration: none;
+}
+
+span {
+    text-decoration: none;
+    color: blue;
+} */
+
 .header-section__links > div {
     display: inline-block;
     vertical-align: middle;
