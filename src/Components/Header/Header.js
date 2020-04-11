@@ -36,7 +36,7 @@ class Header extends Component {
                         <Link to='/add-location'>Add Location</Link>
                     </section>
                     <section className="header-section__button header-mobile" onClick={this.menuDisplayChange}> 
-                        <img className="header-section__button-img" src={menu} alt="menu button"/>
+                        {/* <img className="header-section__button-img" src={menu} alt="menu button"/> */}
                     </section>
                 </div>
                 <div className="header-mobile__links" style={{display:this.state.headerMenuDisplay}}>
