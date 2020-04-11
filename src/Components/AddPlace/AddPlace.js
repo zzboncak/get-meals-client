@@ -25,6 +25,10 @@ class AddPage extends React.Component {
                 value: '',
                 isTouched: false
             },
+            dateOfOperation: {
+                value: '',
+                isTouched: false
+            },
             typeOfFood: {
                 value: '',
                 isTouched: false
@@ -77,6 +81,12 @@ class AddPage extends React.Component {
         });
     }
 
+    onDateChange = (newDate) => {
+        this.setState({
+            dateOfOperation: newDate
+        });
+    }
+
     onTypeChange = (newFood) => {
         this.setState({
             typeOfFood: newFood
@@ -113,6 +123,12 @@ class AddPage extends React.Component {
         }
     }
 
+    validateDateOfOperation() {
+        if (this.state.hourOfOperation === '') {
+            return 'You must select date of operation'
+        }
+    }
+
     validateTypeOfFood() {
         if (this.state.typeOfFood === '') {
             return 'You must select location type'
@@ -126,6 +142,7 @@ class AddPage extends React.Component {
         const cityError = this.validateCity();
         const stateError = this.validateUsState();
         const hoursError = this.validateHoursOfOperation();
+        const dateError = this.validateDateOfOperation();
         const typeError = this.validateTypeOfFood();
 
         return (
@@ -180,7 +197,66 @@ class AddPage extends React.Component {
                     {this.state.usState.isTouched && stateError}
                     <br />
 
-                    <label htmlFor='hours-of-operation' className='place-form__hour-of-operation'>Hours of Operation:</label>
+                    <label htmlFor='date-of-operation' className='place-form__date-of-operation'>Days Open:</label>
+                    <br />
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Monday</label>
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Tuesday</label>
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Wednesday</label>
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Thursday</label>
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Friday</label>
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Saturday</label>
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Sunday</label>
+
+                    {/* <label htmlFor='hours-of-operation' className='place-form__hour-of-operation'>Hours of Operation:</label>
                     <br />
                     <label htmlFor='hours-start' className='place-form__open-hours'>Open:</label>
                     <select>
@@ -232,7 +308,7 @@ class AddPage extends React.Component {
                         <option className='place-form__open-hour'>10:30PM</option>
                         <option className='place-form__open-hour'>11:00PM</option>
                         <option className='place-form__open-hour'>11:30PM</option>
-                    </select>
+                    </select> */}
                     <br />
                     {this.state.hourOfOperation.isTouched && hoursError}
                     <br />
