@@ -25,6 +25,10 @@ class AddPage extends React.Component {
                 value: '',
                 isTouched: false
             },
+            dateOfOperation: {
+                value: '',
+                isTouched: false
+            },
             typeOfFood: {
                 value: '',
                 isTouched: false
@@ -77,6 +81,12 @@ class AddPage extends React.Component {
         });
     }
 
+    onDateChange = (newDate) => {
+        this.setState({
+            dateOfOperation: newDate
+        });
+    }
+
     onTypeChange = (newFood) => {
         this.setState({
             typeOfFood: newFood
@@ -113,6 +123,12 @@ class AddPage extends React.Component {
         }
     }
 
+    validateDateOfOperation() {
+        if (this.state.hourOfOperation === '') {
+            return 'You must select date of operation'
+        }
+    }
+
     validateTypeOfFood() {
         if (this.state.typeOfFood === '') {
             return 'You must select location type'
@@ -126,6 +142,7 @@ class AddPage extends React.Component {
         const cityError = this.validateCity();
         const stateError = this.validateUsState();
         const hoursError = this.validateHoursOfOperation();
+        const dateError = this.validateDateOfOperation();
         const typeError = this.validateTypeOfFood();
 
         return (
@@ -180,117 +197,197 @@ class AddPage extends React.Component {
                     {this.state.usState.isTouched && stateError}
                     <br />
 
-                    <label htmlFor='hours-of-operation' className='place-form__hour-of-operation'>Hours of Operation:</label>
+                    <label htmlFor='date-of-operation' className='place-form__date-of-operation'>Days of Operation:</label>
                     <br />
-                    <label htmlFor='hours-start' className='place-form__open-hours'>Open:</label>
-                    <select>
-                        <option className='place-form__open-hour'>12:00AM</option>
-                        <option className='place-form__open-hour'>12:30AM</option>
-                        <option className='place-form__open-hour'>1:00AM</option>
-                        <option className='place-form__open-hour'>1:30AM</option>
-                        <option className='place-form__open-hour'>2:00AM</option>
-                        <option className='place-form__open-hour'>2:30AM</option>
-                        <option className='place-form__open-hour'>3:00AM</option>
-                        <option className='place-form__open-hour'>3:30AM</option>
-                        <option className='place-form__open-hour'>4:00AM</option>
-                        <option className='place-form__open-hour'>4:30AM</option>
-                        <option className='place-form__open-hour'>5:00AM</option>
-                        <option className='place-form__open-hour'>5:30AM</option>
-                        <option className='place-form__open-hour'>6:00AM</option>
-                        <option className='place-form__open-hour'>6:30AM</option>
-                        <option className='place-form__open-hour'>7:00AM</option>
-                        <option className='place-form__open-hour'>7:30AM</option>
-                        <option className='place-form__open-hour'>8:00AM</option>
-                        <option className='place-form__open-hour'>8:30AM</option>
-                        <option className='place-form__open-hour'>9:00AM</option>
-                        <option className='place-form__open-hour'>9:30AM</option>
-                        <option className='place-form__open-hour'>10:00AM</option>
-                        <option className='place-form__open-hour'>10:30AM</option>
-                        <option className='place-form__open-hour'>11:00AM</option>
-                        <option className='place-form__open-hour'>11:30AM</option>
-                        <option className='place-form__open-hour'>12:00PM</option>
-                        <option className='place-form__open-hour'>12:30PM</option>
-                        <option className='place-form__open-hour'>1:00PM</option>
-                        <option className='place-form__open-hour'>1:30PM</option>
-                        <option className='place-form__open-hour'>2:00PM</option>
-                        <option className='place-form__open-hour'>2:30PM</option>
-                        <option className='place-form__open-hour'>3:00PM</option>
-                        <option className='place-form__open-hour'>3:30PM</option>
-                        <option className='place-form__open-hour'>4:00PM</option>
-                        <option className='place-form__open-hour'>4:30PM</option>
-                        <option className='place-form__open-hour'>5:00PM</option>
-                        <option className='place-form__open-hour'>5:30PM</option>
-                        <option className='place-form__open-hour'>6:00PM</option>
-                        <option className='place-form__open-hour'>6:30PM</option>
-                        <option className='place-form__open-hour'>7:00PM</option>
-                        <option className='place-form__open-hour'>7:30PM</option>
-                        <option className='place-form__open-hour'>8:00PM</option>
-                        <option className='place-form__open-hour'>8:30PM</option>
-                        <option className='place-form__open-hour'>9:00PM</option>
-                        <option className='place-form__open-hour'>9:30PM</option>
-                        <option className='place-form__open-hour'>10:00PM</option>
-                        <option className='place-form__open-hour'>10:30PM</option>
-                        <option className='place-form__open-hour'>11:00PM</option>
-                        <option className='place-form__open-hour'>11:30PM</option>
-                    </select>
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Monday</label>
+                    <label>Open</label>
+                    <input 
+                        type='time' 
+                        name='opening-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__open-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
+                    <label>Close</label>
+                    <input 
+                        type='time' 
+                        name='closing-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__close-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
                     <br />
-                    {this.state.hourOfOperation.isTouched && hoursError}
+                    {this.state.dateOfOperation.isTouched && stateError}
+                    {this.state.hourOfOperation.isTouched && stateError}
+                    <br />
+                    
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Tuesday</label>
+                    <label>Open</label>
+                    <input 
+                        type='time' 
+                        name='opening-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__open-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
+                    <label>Close</label>
+                    <input 
+                        type='time' 
+                        name='closing-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__close-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
+                    <br />
+                    {this.state.dateOfOperation.isTouched && stateError}
+                    {this.state.hourOfOperation.isTouched && stateError}
+                    <br />
+                    
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Wednesday</label>
+                    <label>Open</label>
+                    <input 
+                        type='time' 
+                        name='opening-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__open-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
+                    <label>Close</label>
+                    <input 
+                        type='time' 
+                        name='closing-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__close-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
+                    <br />
+                    {this.state.dateOfOperation.isTouched && stateError}
+                    {this.state.hourOfOperation.isTouched && stateError}
+                    <br />
+                    
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Thursday</label>
+                    <label>Open</label>
+                    <input 
+                        type='time' 
+                        name='opening-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__open-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
+                    <label>Close</label>
+                    <input 
+                        type='time' 
+                        name='closing-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__close-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
+                    <br />
+                    {this.state.dateOfOperation.isTouched && stateError}
+                    {this.state.hourOfOperation.isTouched && stateError}
+                    <br />
+                    
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Friday</label>
+                    <label>Open</label>
+                    <input 
+                        type='time' 
+                        name='opening-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__open-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
+                    <label>Close</label>
+                    <input 
+                        type='time' 
+                        name='closing-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__close-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
+                    <br />
+                    {this.state.dateOfOperation.isTouched && stateError}
+                    {this.state.hourOfOperation.isTouched && stateError}
+                    <br />
+                    
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Saturday</label>
+                    <label>Open</label>
+                    <input 
+                        type='time' 
+                        name='opening-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__open-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
+                    <label>Close</label>
+                    <input 
+                        type='time' 
+                        name='closing-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__close-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
+                    <br />
+                    {this.state.dateOfOperation.isTouched && stateError}
+                    {this.state.hourOfOperation.isTouched && stateError}
+                    <br />
+                    
+                    <input 
+                        type='checkbox' 
+                        name='date-check' 
+                        value={this.state.dateOfOperation.value}
+                        className='place-form__day-input'
+                        onChange={e => this.onDateChange(e.target.value)}
+                    />
+                    <label htmlFor='date-check'>Sunday</label>
+                    <label>Open</label>
+                    <input 
+                        type='time' 
+                        name='opening-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__open-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
+                    <label>Close</label>
+                    <input 
+                        type='time' 
+                        name='closing-time'
+                        value={this.state.hourOfOperation.value}
+                        className='place-form__close-input'
+                        onChange={e => this.onDateChange(e.target.value)}/>
+                    <br />
+                    {this.state.dateOfOperation.isTouched && stateError}
+                    {this.state.hourOfOperation.isTouched && stateError}
                     <br />
 
-                    <label htmlFor='hours-end' className='place-form__close-hours'>Close:</label>
-                    <select>
-                        <option className='place-form__close-hour'>12:00AM</option>
-                        <option className='place-form__close-hour'>12:30AM</option>
-                        <option className='place-form__close-hour'>1:00AM</option>
-                        <option className='place-form__close-hour'>1:30AM</option>
-                        <option className='place-form__close-hour'>2:00AM</option>
-                        <option className='place-form__close-hour'>2:30AM</option>
-                        <option className='place-form__close-hour'>3:00AM</option>
-                        <option className='place-form__close-hour'>3:30AM</option>
-                        <option className='place-form__close-hour'>4:00AM</option>
-                        <option className='place-form__close-hour'>4:30AM</option>
-                        <option className='place-form__close-hour'>5:00AM</option>
-                        <option className='place-form__close-hour'>5:30AM</option>
-                        <option className='place-form__close-hour'>6:00AM</option>
-                        <option className='place-form__close-hour'>6:30AM</option>
-                        <option className='place-form__close-hour'>7:00AM</option>
-                        <option className='place-form__close-hour'>7:30AM</option>
-                        <option className='place-form__close-hour'>8:00AM</option>
-                        <option className='place-form__close-hour'>8:30AM</option>
-                        <option className='place-form__close-hour'>9:00AM</option>
-                        <option className='place-form__close-hour'>9:30AM</option>
-                        <option className='place-form__close-hour'>10:00AM</option>
-                        <option className='place-form__close-hour'>10:30AM</option>
-                        <option className='place-form__close-hour'>11:00AM</option>
-                        <option className='place-form__close-hour'>11:30AM</option>
-                        <option className='place-form__close-hour'>12:00PM</option>
-                        <option className='place-form__close-hour'>12:30PM</option>
-                        <option className='place-form__close-hour'>1:00PM</option>
-                        <option className='place-form__close-hour'>1:30PM</option>
-                        <option className='place-form__close-hour'>2:00PM</option>
-                        <option className='place-form__close-hour'>2:30PM</option>
-                        <option className='place-form__close-hour'>3:00PM</option>
-                        <option className='place-form__close-hour'>3:30PM</option>
-                        <option className='place-form__close-hour'>4:00PM</option>
-                        <option className='place-form__close-hour'>4:30PM</option>
-                        <option className='place-form__close-hour'>5:00PM</option>
-                        <option className='place-form__close-hour'>5:30PM</option>
-                        <option className='place-form__close-hour'>6:00PM</option>
-                        <option className='place-form__close-hour'>6:30PM</option>
-                        <option className='place-form__close-hour'>7:00PM</option>
-                        <option className='place-form__close-hour'>7:30PM</option>
-                        <option className='place-form__close-hour'>8:00PM</option>
-                        <option className='place-form__close-hour'>8:30PM</option>
-                        <option className='place-form__close-hour'>9:00PM</option>
-                        <option className='place-form__close-hour'>9:30PM</option>
-                        <option className='place-form__close-hour'>10:00PM</option>
-                        <option className='place-form__close-hour'>10:30PM</option>
-                        <option className='place-form__close-hour'>11:00PM</option>
-                        <option className='place-form__close-hour'>11:30PM</option>
-                    </select>  
-                    <br />
-                    {this.state.hourOfOperation.isTouched && hoursError}
-                    <br />
 
                     <label htmlFor='location-type' className='place-form__location-types'>Location Type:</label>
                     <select>
@@ -312,6 +409,7 @@ class AddPage extends React.Component {
                             this.validateCity() ||
                             this.validateUsState() ||
                             this.validateHoursOfOperation() ||
+                            this.validateDateOfOperation ||
                             this.validateTypeOfFood() 
                     }>
                         Add this location
