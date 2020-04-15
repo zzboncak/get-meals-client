@@ -11,7 +11,9 @@
     "react-google-maps": "^9.4.5",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "shallow": "^1.0.0"
+    "shallow": "^1.0.0",
+    "typeface-kreon": "^1.1.4",
+    "typeface-ubuntu": "0.0.65"
   },
   "scripts": {
     "start": "react-scripts start",
