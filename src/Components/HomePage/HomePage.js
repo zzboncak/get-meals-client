@@ -6,6 +6,7 @@ import mapSample from '../Util/map.png';
 import Maps from '../Map/Map'
 
 class HomePage extends React.Component {
+    
     render() {
         return (
             <div>

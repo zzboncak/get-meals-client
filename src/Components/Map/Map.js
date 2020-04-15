@@ -27,6 +27,14 @@ function Map() {
         }}
       />
 
+      <Marker 
+        key={1}
+        position={{
+          lat: 47,
+          lng: -122
+        }}
+      />
+
 
     </GoogleMap>
   )
