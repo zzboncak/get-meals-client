@@ -5,16 +5,36 @@ import './HomePage.css';
 import mapSample from '../Util/map.png';
 import Maps from '../Map/Map'
 
+
+
 class HomePage extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            locations: [],
+        }
+    }
+
+    componentDidMount() {
+        fetch('https://frozen-everglades-23155.herokuapp.com/api/locations')
+
+        .then(res => res.json())
+        .then(locations => {
+            this.setState({ locations })
+        })
+
+    }
+
+    
     
     render() {
+        
         return (
             <div>
                 <section className="main-view home-page__section">
                     <Sidebar />
                     <div className="map">
-                        <Maps />
-                        {/* <img className="map" src={mapSample} alt="map sample"/> */}
+                        <Maps locations={this.state.locations}/>
                     </div>
                 </section>
             </div>
