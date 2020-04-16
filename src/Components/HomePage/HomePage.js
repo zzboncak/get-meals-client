@@ -6,12 +6,24 @@ import mapSample from '../Util/map.png';
 import Maps from '../Map/Map'
 
 class HomePage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            latlonArray: []
+        }
+    }
+
+    updateLatLon = (inputArray) => {
+        this.setState({
+            latlonArray: inputArray
+        })
+    }
     
     render() {
         return (
             <div>
                 <section className="main-view home-page__section">
-                    <Sidebar />
+                    <Sidebar updateLatLon={this.updateLatLon}/>
                     <div className="map">
                         <Maps />
                         {/* <img className="map" src={mapSample} alt="map sample"/> */}
