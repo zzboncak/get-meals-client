@@ -13,6 +13,7 @@ class HomePage extends React.Component {
         super()
         this.state = {
             locations: [],
+            latlonArray: [40.7127753, -74.0059728]
         }
     }
 
@@ -26,6 +27,12 @@ class HomePage extends React.Component {
 
     }
 
+    updateLatLon = (inputArray) => {
+        this.setState({
+            latlonArray: inputArray
+        })
+    }
+
     
     render() {
         
@@ -34,7 +41,10 @@ class HomePage extends React.Component {
                 <section className="main-view home-page__section">
                     <Sidebar updateLatLon={this.updateLatLon}/>
                     <div className="map">
-                        <Maps locations={this.state.locations}/>
+                        <Maps 
+                            locations={this.state.locations}
+                            latlonArray={this.state.latlonArray}
+                        />
                     </div>
                 </section>
             </div>
