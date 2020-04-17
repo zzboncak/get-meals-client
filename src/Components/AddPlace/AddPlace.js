@@ -21,6 +21,10 @@ class AddPage extends React.Component {
                 value: '',
                 isTouched: false
             },
+            zipcode: {
+                value: '',
+                isTouched: false
+            },
             hourOfOperation: {
                 value: '',
                 isTouched: false
@@ -43,12 +47,70 @@ class AddPage extends React.Component {
 
     handleSubmitAddPlace = (e) => {
         e.preventDefault();
-        let newName = {
-            id: this.generatePlaceId().toString(),
-            name: this.state.name,
-            modified: new Date(),
-            content: this.state.placeAddress
+        let newLocation = {
+            location_name: this.state.name,
+            street_address: this.state.placeAddress,
+            city: this.state.city,
+            state: this.state.usState,
+            zip: this.state.zipcode
         };
+
+        const url = `http://localhost:8000/api/locations`;
+
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(newLocation),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        fetch(url, options)
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error('Something went wrong, please try again later');
+                }
+                return res.json();
+            })
+            .then(data => {
+                this.setState({
+                    name: {
+                        value: '',
+                        isTouched: false
+                    },
+                    placeAddress: {
+                        value: '',
+                        isTouched: false
+                    },
+                    city: {
+                        value: '',
+                        isTouched: false
+                    },
+                    usState: {
+                        value: '',
+                        isTouched: false
+                    },
+                    zipcode: {
+                        value: '',
+                        isTouched: false
+                    },
+                    hourOfOperation: {
+                        value: '',
+                        isTouched: false
+                    },
+                    dateOfOperation: {
+                        value: '',
+                        isTouched: false
+                    },
+                    typeOfFood: {
+                        value: '',
+                        isTouched: false
+                    },
+                });
+            })
+            .catch(err => {
+                console.log(err)
+            });
     }
     
     onNameChange = (newName) => {
@@ -72,6 +134,12 @@ class AddPage extends React.Component {
     onUsStateChange = (newState) => {
         this.setState({
             usState: newState
+        });
+    }
+
+    onZipcodeChange = (newZipcode) => {
+        this.setState({
+            zipcode: newZipcode
         });
     }
 
@@ -117,6 +185,12 @@ class AddPage extends React.Component {
         }
     }
 
+    validateZipcode() {
+        if (this.state.zipcode === '') {
+            return 'You need to enter a zipcode'
+        }
+    }
+
     validateHoursOfOperation() {
         if (this.state.hourOfOperation === '') {
             return 'You must select hours of operation'
@@ -141,6 +215,7 @@ class AddPage extends React.Component {
         const addressError = this.validatePlaceAddress();
         const cityError = this.validateCity();
         const stateError = this.validateUsState();
+        const zipcodeError = this.validateZipcode();
         const hoursError = this.validateHoursOfOperation();
         const dateError = this.validateDateOfOperation();
         const typeError = this.validateTypeOfFood();
@@ -195,6 +270,19 @@ class AddPage extends React.Component {
                     />
                     <br />
                     {this.state.usState.isTouched && stateError}
+                    <br />
+
+                    <label htmlFor='zipcode' className='place-form__state'>Zipcode: </label>
+                    <input
+                        type='number'
+                        name='zipcode' 
+                        id='zipcode' 
+                        value={this.state.zipcode.value} 
+                        className='place-form__state-input'
+                        onChange={e => this.onZipcodeChange(e.target.value)} 
+                    />
+                    <br />
+                    {this.state.zipcode.isTouched && zipcodeError}
                     <br />
 
                     <label htmlFor='date-of-operation' className='place-form__date-of-operation'>Days of Operation:</label>
