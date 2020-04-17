@@ -4,6 +4,7 @@ import './AddPlace.css'
 class AddPage extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             name: {
                 value: '',
@@ -55,7 +56,7 @@ class AddPage extends React.Component {
             zip: this.state.zipcode
         };
 
-        const url = `http://localhost:8000/api/locations`;
+        const url = `https://frozen-everglades-23155.herokuapp.com/api/locations`;
 
         const options = {
             method: 'POST',
@@ -107,6 +108,7 @@ class AddPage extends React.Component {
                         isTouched: false
                     },
                 });
+                this.props.history.push('/');
             })
             .catch(err => {
                 console.log(err)
