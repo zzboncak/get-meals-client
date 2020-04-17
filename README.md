@@ -10,10 +10,13 @@ Required Items for ReadMe
 
 [X] A link to your live app. 
 
-[  ]  Documentation of your API.  
+[   ]  Documentation of your API.  
 
-[  ]  Screenshot(s) of your app. This makes your app description much easier to understand. 
+[   ]  Screenshot(s) of your app. This makes your app description much easier to understand. 
 
-[  ]  A summary section. This should have a concise explanation of what your app does. Try to frame this from the standpoint of what the user does, or what the app enables for the user. 
+[   ]  A summary section. This should have a concise explanation of what your app does. Try to frame this from the standpoint of what the user does, or what the app enables for the user. 
 
-[  ]  A section on the technology used.
+[   ]  A section on the technology used.
+
+[Backend](https://github.com/zzboncak/get-meals-api/tree/development)
+
