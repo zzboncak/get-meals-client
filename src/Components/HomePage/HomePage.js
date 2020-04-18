@@ -8,6 +8,7 @@ import Maps from '../Map/Map'
 
 
 class HomePage extends React.Component {
+
     constructor() {
         super()
         this.state = {
@@ -25,13 +26,12 @@ class HomePage extends React.Component {
     }
 
     
-    
     render() {
         
         return (
             <div>
                 <section className="main-view home-page__section">
-                    <Sidebar />
+                    <Sidebar updateLatLon={this.updateLatLon}/>
                     <div className="map">
                         <Maps 
                             locations={this.state.locations}
