@@ -39,8 +39,12 @@ const MapGoogle = withScriptjs(
                         }}
                     >
                         <>
-                            <div> {selectedLocation.location_name} </div>
-                            <div> can you see this? </div>
+                            <h3> {selectedLocation.location_name} </h3>
+                            <div> Hours: {selectedLocation.open_hour} - {selectedLocation.close_hour} </div>
+                            <div> Address: {`${selectedLocation.street_address} ${selectedLocation.city} ${selectedLocation.state} ${selectedLocation.zip}`} </div>
+                            <div> Website: <a href={selectedLocation.website}>{selectedLocation.website}</a> </div>
+                            <div> Description: {selectedLocation.location_description} </div>
+
                         </>
                     </InfoWindow>
                 )}
