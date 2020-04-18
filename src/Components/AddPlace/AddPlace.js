@@ -21,6 +21,10 @@ class AddPage extends React.Component {
                 value: '',
                 isTouched: false
             },
+            website: {
+                value: '',
+                isTouched: false
+            },
             hourOfOperation: {
                 value: '',
                 isTouched: false
@@ -75,6 +79,12 @@ class AddPage extends React.Component {
         });
     }
 
+    onWebsiteChane = (newWebsite) => {
+        this.setState({
+            website: newWebsite
+        });
+    }
+
     onHoursChange = (newHours) => {
         this.setState({
             hourOfOperation: newHours
@@ -117,6 +127,12 @@ class AddPage extends React.Component {
         }
     }
 
+    validateWebsite() {
+        if (this.state.website === '') {
+            return 'You need to enter a website'
+        }
+    }
+
     validateHoursOfOperation() {
         if (this.state.hourOfOperation === '') {
             return 'You must select hours of operation'
@@ -141,6 +157,7 @@ class AddPage extends React.Component {
         const addressError = this.validatePlaceAddress();
         const cityError = this.validateCity();
         const stateError = this.validateUsState();
+        
         const hoursError = this.validateHoursOfOperation();
         const dateError = this.validateDateOfOperation();
         const typeError = this.validateTypeOfFood();
@@ -162,7 +179,8 @@ class AddPage extends React.Component {
                     <br />
 
                     <label htmlFor='place-address' className='place-form__address'>Location: </label>
-                    <textarea 
+                    <input
+                        type='text'
                         name='place-address' 
                         id='place-address' 
                         value={this.state.placeAddress.value} 
@@ -196,6 +214,15 @@ class AddPage extends React.Component {
                     <br />
                     {this.state.usState.isTouched && stateError}
                     <br />
+
+                    <label htmlFor='website' className='place-form__website'>Website: </label>
+                    <input
+                        name='website'
+                        id='website'
+                        value={this.state.website.value}
+                        className='place-form__website-input'
+                        onChange={e => this.onWebsiteChane(e.target.value)}
+                    />
 
                     <label htmlFor='date-of-operation' className='place-form__date-of-operation'>Days of Operation:</label>
                     <br />
