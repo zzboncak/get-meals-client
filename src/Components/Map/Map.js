@@ -1,5 +1,5 @@
 import React from 'react'
-import MapGoogle from './WrappedMap'
+import MapGoogle from '../MapGoogle/MapGoogle'
 import './Map.css';
 
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
-import Popup from '../Popup/Popup';
 import './HomePage.css';
 import mapSample from '../Util/map.png';
 import Maps from '../Map/Map';
