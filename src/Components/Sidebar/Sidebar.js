@@ -1,86 +1,18 @@
-import React, { Component } from 'react'
-import "./Sidebar.css"
-
+import React, { Component } from 'react';
+import "./Sidebar.css";
+import GetMealsContext from '../../GetMealsContext';
 
 class Sidebar extends Component {
     constructor(props) {
         super(props);
     }
 
+    static contextType = GetMealsContext;
+
     handleSubmit = e => {
         e.preventDefault()
         let {address, radius } = e.target;
-        this.getGooglePlaceID(address.value);
-    }
-    
-    //formatting query params
-    formatQueryParams = (params) => {
-        const queryItems = Object.keys(params)
-          .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-        return queryItems.join('&');
-    }
-
-    // get the lat and lng values from the place ID
-    getLatlng = (placeIdInput) => {
-        
-        //potential firewall situation with using a work laptop. Still need to determine the why
-        const proxyurl = "https://cors-anywhere.herokuapp.com/"
-        const searchUrl = 'https://maps.googleapis.com/maps/api/geocode/json'
-    
-        const params = {
-            place_id: placeIdInput,
-            key: process.env.REACT_APP_GEOCODE_KEY
-        };
-    
-        const queryString = this.formatQueryParams(params)
-        const url = searchUrl + '?' + queryString;
-        
-        fetch(proxyurl + url)
-        .then(response => {
-            if (response.ok) {
-                    return response.json();
-                }
-                throw new Error(response.statusText);
-            })
-            .then(responseJson => {
-                let locationLat = responseJson.results[0].geometry.location.lat;
-                let locationLon = responseJson.results[0].geometry.location.lng;
-                let latlonArray = [locationLat, locationLon];
-                this.props.updateLatLon(latlonArray);
-            })
-            .catch(err => {
-                console.log('Error ocurred')
-            });
-    }
-
-    // get the place ID from the user input address
-    getGooglePlaceID = (userInput) => {
-        //potential firewall situation with using a work laptop. Still need to determine the why
-        const proxyurl = "https://cors-anywhere.herokuapp.com/"
-        const searchUrl = 'https://maps.googleapis.com/maps/api/place/autocomplete/json'
-        
-        const params = {
-            input: userInput,
-            key: process.env.REACT_APP_GEOCODE_KEY
-        };
-    
-        const queryString = this.formatQueryParams(params)
-        const url = searchUrl + '?' + queryString;
-    
-        fetch(proxyurl + url)
-        .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error(response.statusText);
-            })
-            .then(responseJson => {
-                let googleAddressPlaceID = responseJson.predictions[0].place_id;
-                this.getLatlng(googleAddressPlaceID);
-            })
-            .catch(err => {
-                console.log(`Error ocurred getting place ID`);
-            });
+        this.context.getGooglePlaceID(address.value);
     }
     
     render() {

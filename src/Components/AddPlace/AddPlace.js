@@ -1,5 +1,6 @@
-import React from 'react'
-import './AddPlace.css'
+import React from 'react';
+import './AddPlace.css';
+import GetMealsContext from '../../GetMealsContext';
 
 class AddPage extends React.Component {
     constructor(props) {
@@ -41,6 +42,8 @@ class AddPage extends React.Component {
         }
     }
 
+    static contextType = GetMealsContext;
+
     generatePlaceId = () => {
         let placeId = Math.ceil(Math.random()*1000000);
         return placeId;
@@ -55,6 +58,8 @@ class AddPage extends React.Component {
             state: this.state.usState,
             zip: this.state.zipcode
         };
+
+        this.context.getGooglePlaceID(this.state.placeAddress + ' ' + this.state.city + ' ' + this.state.usState + ' ' + this.state.zipcode)
 
         const url = `https://frozen-everglades-23155.herokuapp.com/api/locations`;
 
@@ -108,6 +113,7 @@ class AddPage extends React.Component {
                         isTouched: false
                     },
                 });
+                this.context.locationFetch();
                 this.props.history.push('/');
             })
             .catch(err => {
