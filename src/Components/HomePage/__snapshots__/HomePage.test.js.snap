@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage component renders the component as expected 1`] = `
+<div>
+  <section
+    className="main-view home-page__section"
+  >
+    <div
+      className="sidebar-container"
+    >
+      <form
+        className="sidebar-form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="sidebar-form__search"
+        >
+          <label
+            htmlFor="sidebar-form__label"
+          >
+            Search by address:
+          </label>
+          <input
+            className="sidebar-form__input"
+            id="address"
+            placeholder="seattle"
+            required={true}
+            type="text"
+          />
+        </div>
+        <div
+          className="sidebar-form__results-within"
+        >
+          <label
+            htmlFor="sidebar-form__results-within-label"
+          >
+            Show Results Within (Miles)
+          </label>
+          <input
+            className="sidebar-form__results-with-input"
+            id="radius"
+            placeholder="10"
+            type="text"
+          />
+        </div>
+        <div
+          className="sidebar-form__button-container"
+        >
+          <button
+            className="sidebar-form__submit-button"
+            type="submit"
+          >
+             Search
+          </button>
+        </div>
+      </form>
+    </div>
+    <div
+      className="map"
+    >
+      <div
+        className="mapContainer"
+      >
+        <div
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        />
+      </div>
+    </div>
+  </section>
+</div>
+`;

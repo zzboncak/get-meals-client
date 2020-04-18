@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import Header from './header';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -29,14 +27,4 @@ describe(`Header component`, () => {
           .toJSON();
         expect(tree).toMatchSnapshot();  
     });
-
-    // it('renders a Header component by default', () => {
-    //     const wrapper = shallow(<Header />)
-    //     expect(toJson(wrapper)).toMatchSnapshot()
-    // })
-
-    // it('renders the Header component from props', () => {
-    //     const wrapper = shallow(<Header {...props} />)
-    //     expect(toJson(wrapper)).toMatchSnapshot()
-    // })
 })
