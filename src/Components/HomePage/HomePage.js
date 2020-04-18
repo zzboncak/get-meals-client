@@ -22,7 +22,6 @@ class HomePage extends React.Component {
         .then(locations => {
             this.setState({ locations })
         })
-
     }
 
     
@@ -34,7 +33,9 @@ class HomePage extends React.Component {
                 <section className="main-view home-page__section">
                     <Sidebar />
                     <div className="map">
-                        <Maps locations={this.state.locations}/>
+                        <Maps 
+                            locations={this.state.locations}
+                        />
                     </div>
                 </section>
             </div>
