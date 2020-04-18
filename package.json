@@ -8,12 +8,20 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-google-maps": "^9.4.5",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "shallow": "^1.0.0",
+    "typeface-kreon": "^1.1.4",
+    "typeface-ubuntu": "0.0.65"
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "CI=true react-scripts test --colors",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "now --prod ./build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -30,5 +38,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
+    "react-test-renderer": "^16.13.1"
   }
 }

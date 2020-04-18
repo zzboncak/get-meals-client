@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component renders the Header component as expected 1`] = `
+<div
+  className="footer-container"
+>
+  <section>
+    Thinkful Fullstack Capstone Project
+  </section>
+  <section>
+    <a
+      href="/About"
+      onClick={[Function]}
+    >
+      About Us
+    </a>
+  </section>
+</div>
+`;
