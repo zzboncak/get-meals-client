@@ -2,7 +2,7 @@
 
 By [Sejin Hwang](https://github.com/seejins), [John Lee](https://github.com/johlee92), [Victoria Moore](https://github.com/JaggerSofia), [Peggy Sturman](https://github.com/glamazon), and [Zack Zboncak](https://github.com/zzboncak).
 
-Get Meals was created by a group of students at Thinkful who all of the like mind of wanting to create something that will help people. The app was born in the midst of the COVID-19 out of a want to help people easily find places where they can get free meals, the location of food banks and places that provide discounts to our military, healthcare workers, etc.
+Get Meals was created by a group of students at Thinkful who all of the like mind of wanting to create something that will help people. The app was born in the midst of the COVID-19 out of a want to help people easily find places where they can get free meals, the location of food banks and places that provide discounts to our military, healthcare workers, etc. Get Meals is designed to be useful during Covid-19
 
 # See Get Meals in Action
 
