@@ -3,9 +3,11 @@
 exports[`Header component renders the Header component as expected 1`] = `
 Array [
   <div
-    className="header-container"
+    className="header-section__links"
   >
-    <section>
+    <section
+      className="header-section__link"
+    >
       <a
         href="/"
         onClick={[Function]}
@@ -14,7 +16,7 @@ Array [
       </a>
     </section>
     <section
-      className="header-fullscreen"
+      className="header-section__link header-fullscreen"
     >
       <a
         href="/"
@@ -24,7 +26,7 @@ Array [
       </a>
     </section>
     <section
-      className="header-fullscreen"
+      className="header-section__link header-fullscreen"
     >
       <a
         href="/about"
@@ -34,7 +36,7 @@ Array [
       </a>
     </section>
     <section
-      className="header-fullscreen"
+      className="header-section__link header-fullscreen"
     >
       <a
         href="/add-location"
@@ -44,18 +46,12 @@ Array [
       </a>
     </section>
     <section
-      className="header-mobile"
+      className="header-section__button header-mobile"
       onClick={[Function]}
-    >
-      <img
-        alt="menu button"
-        className="header-mobile"
-        src="menuHamburger.png"
-      />
-    </section>
+    />
   </div>,
   <div
-    className="header-mobile"
+    className="header-mobile__links"
     style={
       Object {
         "display": "none",
@@ -63,10 +59,11 @@ Array [
     }
   >
     <ul
-      className="header-mobile"
+      className="header-mobile__list"
     >
       <li>
         <a
+          className="header-mobile__home-page"
           href="/"
           onClick={[Function]}
         >
@@ -75,6 +72,7 @@ Array [
       </li>
       <li>
         <a
+          className="heaer-mobile__about-us"
           href="/about"
           onClick={[Function]}
         >
@@ -83,6 +81,7 @@ Array [
       </li>
       <li>
         <a
+          className="header-mobile__add-location-cta"
           href="/add-location"
           onClick={[Function]}
         >
