@@ -29,14 +29,4 @@ describe(`Footer component`, () => {
           .toJSON();
         expect(tree).toMatchSnapshot();  
     });
-
-    // it('renders a Footer component by default', () => {
-    //     const wrapper = shallow(<Footer />)
-    //     expect(toJson(wrapper)).toMatchSnapshot()
-    // })
-
-    // it('renders the Footer component from props', () => {
-    //     const wrapper = shallow(<Footer {...props} />)
-    //     expect(toJson(wrapper)).toMatchSnapshot()
-    // })
 })
