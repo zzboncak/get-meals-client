@@ -4,7 +4,7 @@ import './Map.css';
 
 
 export default function Maps(props) {
-  console.log(props.latlonArray)
+  
   return (
     <div className="mapContainer">
       {/** The css must be explicit for these cases! */}

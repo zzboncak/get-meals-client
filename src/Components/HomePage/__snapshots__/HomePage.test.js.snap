@@ -29,21 +29,6 @@ exports[`HomePage component renders the component as expected 1`] = `
           />
         </div>
         <div
-          className="sidebar-form__results-within"
-        >
-          <label
-            htmlFor="sidebar-form__results-within-label"
-          >
-            Show Results Within (Miles)
-          </label>
-          <input
-            className="sidebar-form__results-with-input"
-            id="radius"
-            placeholder="10"
-            type="text"
-          />
-        </div>
-        <div
           className="sidebar-form__button-container"
         >
           <button

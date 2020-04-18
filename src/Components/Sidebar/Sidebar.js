@@ -27,12 +27,12 @@ class Sidebar extends Component {
                             <input className="sidebar-form__input" type="text" placeholder="seattle" id="address" required />
                         </div>
 
-                        <div className="sidebar-form__results-within">
+                        {/* <div className="sidebar-form__results-within">
                             <label htmlFor="sidebar-form__results-within-label">
                                 Show Results Within (Miles)
                             </label>
                             <input className="sidebar-form__results-with-input" type="text" placeholder="10" id="radius" />
-                        </div>
+                        </div> */}
 
                         <div className="sidebar-form__button-container">
                         <button className="sidebar-form__submit-button" type="submit"> Search</button>
