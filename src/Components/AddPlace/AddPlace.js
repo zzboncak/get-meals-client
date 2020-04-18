@@ -5,7 +5,6 @@ import GetMealsContext from '../../GetMealsContext';
 class AddPage extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             name: {
                 value: '',
