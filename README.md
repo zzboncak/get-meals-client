@@ -30,9 +30,9 @@ To be added when Styling is complete.
 * PostgreSQL
 
 
-**Required Items for ReadMe**
+# Required Items for ReadMe
 
-To be deleted when ReadMe is complete.
+**To be deleted when ReadMe is complete.**
 
 [X] The name of your app at the top of the file.  
 
