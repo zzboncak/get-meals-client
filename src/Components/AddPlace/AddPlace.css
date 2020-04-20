@@ -1,3 +1,7 @@
-/* .add-location-form {
-    align: center;
-} */
+.add-location-form {
+    background: #fa9843;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+    border: 2px solid #d2813b
+}
