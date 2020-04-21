@@ -21,7 +21,8 @@ class Header extends Component {
     render() {
         return(
             <>
-                <div className="header-section__links">
+            <div className="header-container">   
+            <div className="header-section__links">
                     <section className="header-section__link">
                         {/* Placeholder for logo */}
                         <Link to='/'>Get Meals</Link>                
@@ -38,6 +39,7 @@ class Header extends Component {
                     <section className="header-section__button header-mobile" onClick={this.menuDisplayChange}> 
                         {/* <img className="header-section__button-img" src={menu} alt="menu button"/> */}
                     </section>
+                    </div> 
                 </div>
                 <div className="header-mobile__links" style={{display:this.state.headerMenuDisplay}}>
                     <ul className="header-mobile__list">

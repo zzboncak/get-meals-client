@@ -10,6 +10,16 @@
     font-size: 16px;
 }
 
+.header-section__links {
+
+display: flex;
+        justify-content: left;
+        padding-bottom: 0;
+        height: 70px;
+        align-items: flex-start;
+
+}
+
 .header-mobile {
     background-color: darkgray;
 }
