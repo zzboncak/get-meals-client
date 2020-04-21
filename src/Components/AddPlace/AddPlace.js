@@ -223,6 +223,8 @@ class AddPage extends React.Component {
                         className='place-form__website-input'
                         onChange={e => this.onWebsiteChane(e.target.value)}
                     />
+                    <br />
+                    <br />
 
                     <label htmlFor='date-of-operation' className='place-form__date-of-operation'>Days of Operation:</label>
                     <br />
