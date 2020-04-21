@@ -317,7 +317,7 @@ class AddPage extends React.Component {
                     <br />
                     {this.state.zipcode.isTouched && zipcodeError}
                     <br />
-                    
+
                         <label htmlFor='website' className='place-form__website'>Website: </label>
                         <input
                             name='website'
@@ -524,12 +524,14 @@ class AddPage extends React.Component {
 
                         <label htmlFor='location-type' className='place-form__location-types'>Location Type:</label>
                         <span>* </span>
-                        <select>
-                            <option className='place-form__location-type'>Restaurant</option>
-                            <option className='place-form__location-type'>Food Bank</option>
-                            <option className='place-form__location-type'>School</option>
-                            <option className='place-form__location-type'>Other Non-Profit</option>
-                        </select>
+                        <div className='place-form__select'>
+                            <select>
+                                <option className='place-form__location-type'>Restaurant</option>
+                                <option className='place-form__location-type'>Food Bank</option>
+                                <option className='place-form__location-type'>School</option>
+                                <option className='place-form__location-type'>Other Non-Profit</option>
+                            </select>
+                        </div>
                         <br />
                         {this.state.typeOfFood.isTouched && typeError}
                         <br />
