@@ -1,6 +1,7 @@
 import React from 'react';
 import './About.css';
 import placeholder from './placeholder.jpg'
+import ZackZ from './ZackZ.jpeg'
  
 class About extends React.Component {
     render() {
@@ -57,15 +58,15 @@ class About extends React.Component {
  </div>
 
 <div className="item">
-         <h2>Zach</h2>
+         <h2>Zack</h2>
          
           <img
-            src= {placeholder}
+            src= {ZackZ}
             alt="avatar"
             className="avatar-image" />
 
           
-          <p>About text here.</p>
+          <p>Zack is a husband and father of three young boys. He has a wide array of interest, which shows from his degrees in physics and Old Testament. A problem solver at heart, he applies his newfound love for coding to projects like Get Meals. You can checkout his other projects <a href="https://zzboncak.github.io/Portfolio/" target="_blank" rel='noreferrer noopener'>here</a>.</p>
  </div>
 
 <div className="item">
