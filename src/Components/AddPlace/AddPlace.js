@@ -169,7 +169,8 @@ class AddPage extends React.Component {
                 <h4>We ask that if you know of any locations that provide free meals to add the contact information so that other users can easily find food by just searching a city in the US</h4>
                 <div className='add-location-form'>
                     <form onSubmit={e => this.handleSubmitAddPlace(e)} className='place-form__start'>
-                        <label htmlFor='add-location' className='place-form__location-name'>Location name: </label>
+                        <label htmlFor='add-location' className='place-form__location-name'>Location name:</label>
+                        <span>* </span>
                         <input 
                             type='text' 
                             placeholder='name of location' 
@@ -182,7 +183,8 @@ class AddPage extends React.Component {
                         {this.state.name.isTouched && nameError}
                         <br />
 
-                        <label htmlFor='place-address' className='place-form__address'>Location: </label>
+                        <label htmlFor='place-address' className='place-form__address'>Address:</label>
+                        <span>* </span>
                         <input
                             type='text'
                             name='place-address' 
@@ -195,7 +197,8 @@ class AddPage extends React.Component {
                         {this.state.placeAddress.isTouched && addressError}
                         <br />
 
-                        <label htmlFor='city-location' className='place-form__city'>City: </label>
+                        <label htmlFor='city-location' className='place-form__city'>City:</label>
+                        <span>* </span>
                         <input 
                             name='city-location' 
                             id='city-location' 
@@ -207,7 +210,8 @@ class AddPage extends React.Component {
                         {this.state.city.isTouched && cityError}
                         <br />
 
-                        <label htmlFor='us-state' className='place-form__state'>State: </label>
+                        <label htmlFor='us-state' className='place-form__state'>State:</label>
+                        <span>* </span>
                         <input
                             name='us-state' 
                             id='us-state' 
@@ -424,6 +428,7 @@ class AddPage extends React.Component {
 
 
                         <label htmlFor='location-type' className='place-form__location-types'>Location Type:</label>
+                        <span>* </span>
                         <select>
                             <option className='place-form__location-type'>Restaurant</option>
                             <option className='place-form__location-type'>Food Bank</option>
