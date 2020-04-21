@@ -1,0 +1,55 @@
+.add-location-form {
+    background: #fa9843;
+    width: 75%;
+    padding: 40px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+    border: 2px solid #ce7a30;
+    justify-content: center;
+}
+
+h2, h4 {
+    text-align: center;
+}
+
+form {
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+span {
+    color: #af0303
+}
+
+option {
+    background: #100f0f;
+}
+
+button {
+    margin-top:10px;
+    height: auto;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    color:black;
+    background: #fd7702;
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 0;
+    border-radius:3px;
+    padding: 10px 20px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  }
+
+button:hover,
+button:active {
+    color: #fd7702;
+    background: #100f0f;
+}
+
