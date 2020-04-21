@@ -6,6 +6,7 @@
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0 auto;
+  height: 100%;
 }
 
 .app__header, .app__footer {

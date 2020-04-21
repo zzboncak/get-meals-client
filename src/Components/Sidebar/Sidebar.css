@@ -1,10 +1,22 @@
 .sidebar-container {
     display: flex;
-    width: 300px;
+    width: 20%;
     background: rgb(156, 156, 156);
     border-radius: 5px;
 }
 
 .sidebar-form {
-    padding: 10px;
+    margin: 10px;
+}
+
+
+.sidebar-form__input, .sidebar-form__submit-button {
+    width: 100%;
+    margin-top: 25px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.sidebar-form__submit-button {
+    cursor: pointer;
 }

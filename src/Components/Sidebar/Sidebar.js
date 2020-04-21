@@ -22,9 +22,9 @@ class Sidebar extends Component {
                     <form className="sidebar-form" onSubmit={this.handleSubmit}>
                         <div className="sidebar-form__search">
                             <label htmlFor="sidebar-form__label">
-                                Search by address:
+                                Search by address, city, or zip code:
                             </label>
-                            <input className="sidebar-form__input" type="text" placeholder="seattle" id="address" required />
+                            <input className="sidebar-form__input" type="text" placeholder="New York, NY" id="address" required />
                         </div>
 
                         {/* <div className="sidebar-form__results-within">
