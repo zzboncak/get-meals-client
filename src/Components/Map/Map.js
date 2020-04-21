@@ -1,10 +1,10 @@
 import React from 'react'
-import MapGoogle from './WrappedMap'
+import MapGoogle from '../MapGoogle/MapGoogle'
 import './Map.css';
 
 
 export default function Maps(props) {
-  console.log(props.latlonArray)
+  
   return (
     <div className="mapContainer">
       {/** The css must be explicit for these cases! */}

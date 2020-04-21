@@ -1,30 +1,20 @@
 import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
-import Popup from '../Popup/Popup';
 import './HomePage.css';
 import mapSample from '../Util/map.png';
-import Maps from '../Map/Map'
-
+import Maps from '../Map/Map';
+import GetMealsContext from '../../GetMealsContext';
 
 
 class HomePage extends React.Component {
-
-    constructor() {
-        super()
-        this.state = {
-            locations: [],
-            latlonArray: [40.7127753, -74.0059728]
-        }
+    constructor(props) {
+        super(props)
     }
 
+    static contextType = GetMealsContext;
+
     componentDidMount() {
-        fetch('https://frozen-everglades-23155.herokuapp.com/api/locations')
-
-        .then(res => res.json())
-        .then(locations => {
-            this.setState({ locations })
-        })
-
+        this.context.locationFetch();
     }
 
     updateLatLon = (inputArray) => {
@@ -33,17 +23,15 @@ class HomePage extends React.Component {
         })
     }
 
-    
     render() {
-        
         return (
             <div>
                 <section className="main-view home-page__section">
-                    <Sidebar updateLatLon={this.updateLatLon}/>
+                    <Sidebar/>
                     <div className="map">
                         <Maps 
-                            locations={this.state.locations}
-                            latlonArray={this.state.latlonArray}
+                            locations={this.context.locations}
+                            latlonArray={this.context.latlonArray}
                         />
                     </div>
                 </section>
