@@ -1,6 +1,67 @@
-.header-container {
-    border-bottom: solid 1px darkgray;
-    background-color: darkgray;
+.header-section__links {
+        width: 100%;
+        background: #f18752;
+        padding: 8px 16px;
+}
+
+/* Link {
+    text-decoration: none;
+}
+
+span {
+    text-decoration: none;
+    color: blue;
+} */
+
+.header-section__links > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-section__link-homepage {
+    color: #f37335;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.header-section__nav {
+    display: inline-block;
+    text-align: right;
+    width: calc(100% - 74px);
+    vertical-align: middle;
+}
+
+.header-section__links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header-section__link {
+    display: inline-block;
+    margin: 0 16px;
+}
+
+.header-section__link Link {
+    text-decoration: none;
+    color: #f37335;
+    font-weight: bold;
+    padding: 3px 0;
+}
+
+.header-section__link Link:hover,
+.header-section__link Link:active {
+    color: white;
+    border-bottom: 5px solid white;
+}
+
+
+
+
+/* .header-section__links {
+    border-bottom: solid 1px #f37335;
+    background-color: #f37335;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -10,14 +71,24 @@
     font-size: 16px;
 }
 
-.header-section__links {
+.header-section__link-homepage {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin-top: 20px;
+    min-height: 50px;
+    font-size: 16px;
+}
 
-display: flex;
-        justify-content: left;
-        padding-bottom: 0;
-        height: 70px;
-        align-items: flex-start;
-
+.header-section__link {
+    display: flex;
+    flex-direction: row;
+    justify-content: left; 
+    align-items: center;
+    margin-top: 20px;
+    min-height: 50px;
+    font-size: 16px;
 }
 
 .header-mobile {
@@ -40,12 +111,12 @@ ul.header-mobile {
     text-align: right;
 }
 
-/* breakpoint for tablets */
+breakpoint for tablets
 @media (min-width: 728px) {
     
 }
 
-/* breakpoint for screens */
+breakpoint for screens
 @media (min-width: 1024px) {
     .header-container {
         justify-content: space-around;
@@ -59,4 +130,4 @@ ul.header-mobile {
     .header-mobile {
         display: none;
     }
-}
+} */
