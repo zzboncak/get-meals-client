@@ -317,22 +317,7 @@ class AddPage extends React.Component {
                     <br />
                     {this.state.zipcode.isTouched && zipcodeError}
                     <br />
-
                     
-
-                        <label htmlFor='us-state' className='place-form__state'>State:<span>*</span> </label>
-                        <span>* </span>
-                        <input
-                            name='us-state' 
-                            id='us-state' 
-                            value={this.state.usState.value} 
-                            className='place-form__state-input'
-                            onChange={e => this.onUsStateChange(e.target.value)} 
-                        />
-                        <br />
-                        {this.state.usState.isTouched && stateError}
-                        <br />
-
                         <label htmlFor='website' className='place-form__website'>Website: </label>
                         <input
                             name='website'
