@@ -438,7 +438,7 @@ class AddPage extends React.Component {
                             this.validatePlaceAddress() ||
                             this.validateCity() ||
                             this.validateUsState() ||
-                            this.validateWebsite ||
+                            this.validateWebsite() ||
                             this.validateHoursOfOperation() ||
                             this.validateDateOfOperation() ||
                             this.validateTypeOfFood() 
