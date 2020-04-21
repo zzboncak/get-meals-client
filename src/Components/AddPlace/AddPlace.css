@@ -9,6 +9,10 @@
     justify-content: center;
 }
 
+h2, h4 {
+    text-align: center;
+}
+
 form {
     margin: 0 auto;
     justify-content: center;
