@@ -6,7 +6,7 @@ Get Meals was created by a group of students at Thinkful who all of the like min
 
 # See Get Meals in Action
 
-Add link to deployed app here.
+[Get Meals](https://get-meals-app.now.sh/)
 
 # API
 

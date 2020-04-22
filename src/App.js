@@ -4,18 +4,34 @@ import Header from './Components/Header/Header';
 import HomePage from './Components/HomePage/HomePage';
 import Footer from './Components/Footer/Footer';
 import { Route } from 'react-router-dom';
-import About from './Components/About/About'
-import AddPlace from './Components/AddPlace/AddPlace';
+import About from './Components/About/About';
+import AddPlace from './Components/AddPlace/AddPlace'
 import GetMealsContext from './GetMealsContext';
+import Toolbar from './Components/Toolbar/Toolbar';
+import SideDrawer from './Components/SideDrawer/SideDrawer';
+import Backdrop from './Components/Backdrop/Backdrop';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state={
       locations: [],
-      latlonArray: [40.7127753, -74.0059728]
+      latlonArray: [40.7127753, -74.0059728],
+      sideDrawerOpen: false
     }
   }
+
+  // start code added by Peggy for the Nav Bar.
+  drawerToggleClickHandler = () => {
+    this.setState((prevState) => {
+      return {sideDrawerOpen: !prevState.sideDrawerOpen};
+    });
+  };
+
+  backdropClickHandler = () => {
+    this.setState({sideDrawerOpen: false});
+  };
+  // End Code added by Peggy for the Nav Bar
 
   locationFetch = () => {
     fetch('https://frozen-everglades-23155.herokuapp.com/api/locations')
@@ -97,6 +113,14 @@ class App extends React.Component {
   }
 
   render() {
+
+    // Start code added by Peggy for the Nav Bar
+    let backdrop;
+    if (this.state.sideDrawerOpen) {
+      backdrop = <Backdrop click={this.backdropClickHandler} />
+    }
+    //  End code added by Peggy for the Nav Bar
+
     const contextValue = {
       locations: this.state.locations,
       latlonArray: this.state.latlonArray,
@@ -107,21 +131,30 @@ class App extends React.Component {
     }
 
     return (
-      <div className="App">
-        <GetMealsContext.Provider value={contextValue}>
-          <header className='app__header'>
-            <Header />
-          </header>
-          <main className='app__main'>
-            <Route exact path='/' component={HomePage} />
-            <Route exact path='/about' component={About} />
-            <Route exact path='/add-location' component={AddPlace} />
-          </main>
-          <footer className='app__footer'>
-            <Footer />
-          </footer>
-        </GetMealsContext.Provider>
-      </div>
+      
+      // Start code added by Peggy for the Nav Bar
+      <React.Fragment>
+        <div style={{height: '100%'}}>
+          <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+          <SideDrawer show={this.state.sideDrawerOpen} />
+          {backdrop}
+        </div>
+      {/* // End Code added by Peggy for the Nav Bar */}
+        
+        <div className="App">
+          <GetMealsContext.Provider value={contextValue}>
+            <main className='app__main'>
+              <Route exact path='/' component={HomePage} />
+              <Route exact path='/about' component={About} />
+              <Route exact path='/add-location' component={AddPlace} />
+            </main>
+            <footer className='app__footer'>
+              <Footer />
+            </footer>
+            </GetMealsContext.Provider>
+        </div>
+
+      </React.Fragment> 
     );
   }
 }

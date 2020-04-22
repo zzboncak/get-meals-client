@@ -63,15 +63,23 @@ Array [
       className="item"
     >
       <h2>
-        Zach
+        Zack
       </h2>
       <img
         alt="avatar"
         className="avatar-image"
-        src="placeholder.jpg"
+        src="ZackZ.jpeg"
       />
       <p>
-        About text here.
+        Zack is a husband and father of three young boys. He has a wide array of interest, which shows from his degrees in physics and Old Testament. A problem solver at heart, he applies his newfound love for coding to projects like Get Meals. You can checkout his other projects 
+        <a
+          href="https://zzboncak.github.io/Portfolio/"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          here
+        </a>
+        .
       </p>
     </div>
     <div
