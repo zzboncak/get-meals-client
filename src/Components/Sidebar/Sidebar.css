@@ -1,8 +1,9 @@
 .sidebar-container {
     display: flex;
     width: 20%;
-    background: rgb(156, 156, 156);
+    background: rgb(248, 219, 180);
     border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);;
 }
 
 .sidebar-form {

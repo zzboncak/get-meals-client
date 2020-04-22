@@ -10,8 +10,12 @@
     display: flex;
 }
 
-h2, h4 {
-    text-align: center;
+.add-location {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Ubuntu';
+    padding-top: 25px;
 }
 
 form {
