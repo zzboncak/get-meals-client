@@ -48,6 +48,8 @@ label {
     flex: 1 1;
 }
 
+
+
 span {
     color: #af0303
 }
@@ -55,7 +57,10 @@ span {
 .place-form__days {
     display: flex;
     flex-direction: row;
-
+    text-align: left;
+    /* padding: 0px 0px; */
+    margin: 0px 64px;
+    flex: 1 1;
 }
 
 .place-form__select {
@@ -107,9 +112,14 @@ button:active {
     .place-form__days {
         display: flex;
         flex-direction: column;
+        flex: 1 1;
     }
 }
 
 @media screen and (min-width: 1600px) {
-
+    .place-form__days {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1;
+    }
 }

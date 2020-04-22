@@ -344,7 +344,7 @@ class AddPage extends React.Component {
 
                     <div className='place-form__inputs'>
                         <label htmlFor='date-of-operation' className='place-form__date-of-operation'>Days of Operation:</label>
-                        <br />
+                        <br /><br />
                         <div className='place-form__days'>
                             <input 
                                 type='checkbox' 
