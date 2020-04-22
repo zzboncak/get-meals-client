@@ -2,6 +2,7 @@ import React from 'react';
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
 import { NavLink } from "react-router-dom";
 import './Toolbar.css';
+import Logo from './Logo.png'
 
 
 const toolbar = props => (
@@ -10,7 +11,11 @@ const toolbar = props => (
   <div className="toolbar_toggle-button">
   <DrawerToggleButton click={props.drawerClickHandler} />
   </div>
-  <div className="toolbar_logo"><a href="/">GET MEALS</a></div>
+  <img
+    src= {Logo}
+    alt="logo"
+    className="logo-image" />
+  {/* <div className="toolbar_logo"><a href="/">GET MEALS</a></div> */}
   <div className="spacer" />
   <div className="toolbar_navigation-items">
   <ul>
