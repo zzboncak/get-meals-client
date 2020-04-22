@@ -1,6 +1,7 @@
 import React from 'react';
 import './About.css';
 import placeholder from './placeholder.jpg'
+import VictoriaM from './VictoriaM.jpeg'
  
 class About extends React.Component {
     render() {
@@ -36,7 +37,7 @@ class About extends React.Component {
          <h2>Victora</h2>
          
           <img
-            src= {placeholder}
+            src= {VictoriaM}
             alt="avatar"
             className="avatar-image" />
 
