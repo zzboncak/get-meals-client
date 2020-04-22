@@ -256,97 +256,96 @@ class AddPage extends React.Component {
                 <h4>We ask that if you know of any locations that provide free meals to add the contact information so that other users can easily find food by just searching a city in the US</h4>
             <div className='add-location-form'>
                 <form onSubmit={e => this.handleSubmitAddPlace(e)} className='place-form__start'>
-                    <label htmlFor='add-location' className='place-form__location-name'>Location name:<span>*</span> </label>
-                    <input 
-                        type='text' 
-                        placeholder='name of location' 
-                        name='add-location' 
-                        value={this.state.name.value} 
-                        className='place-form__location-input'
-                        onChange={e => this.onNameChange(e.target.value)} 
-                    />
+                    <div className='place-form__inputs'>
+                        <label htmlFor='add-location' className='place-form__location-name place-form__label'>Location name: </label>
+                        <span>*</span>
+                        <input 
+                            type='text' 
+                            placeholder='name of location' 
+                            name='add-location' 
+                            value={this.state.name.value} 
+                            className='place-form__input'
+                            onChange={e => this.onNameChange(e.target.value)} 
+                        />
+                    </div>
                     <br />
                     {this.state.name.isTouched && nameError}
                     <br />
 
-                    <label htmlFor='place-address' className='place-form__address'>Location:<span>* </span></label>
-                    <input 
-                        name='place-address' 
-                        id='place-address' 
-                        value={this.state.placeAddress.value} 
-                        className='place-form__address-input'
-                        onChange={e => this.onAddressChange(e.target.value)} 
-                    />
+                    <div className='place-form__inputs'>
+                        <label htmlFor='place-address' className='place-form__address place-form__label'>Address:<span>* </span></label>
+                        <input 
+                            name='place-address' 
+                            id='place-address' 
+                            value={this.state.placeAddress.value} 
+                            className='place-form__input'
+                            onChange={e => this.onAddressChange(e.target.value)} 
+                        />
+                    </div>
                     <br />
                     {this.state.placeAddress.isTouched && addressError}
                     <br />
 
-                    <label htmlFor='city-location' className='place-form__city'>City:<span>*</span> </label>
-                    <input 
-                        name='city-location' 
-                        id='city-location' 
-                        value={this.state.city.value} 
-                        className='place-form__city-input'
-                        onChange={e => this.onCityChange(e.target.value)} 
-                    />
+                    <div className='place-form__inputs'>
+                        <label htmlFor='city-location' className='place-form__city place-form__label'>City:<span>*</span> </label>
+                        <input 
+                            name='city-location' 
+                            id='city-location' 
+                            value={this.state.city.value} 
+                            className='place-form__input'
+                            onChange={e => this.onCityChange(e.target.value)} 
+                        />
+                    </div>
                     <br />
                     {this.state.city.isTouched && cityError}
                     <br />
 
-                    <label htmlFor='us-state' className='place-form__state'>State:<span>*</span> </label>
-                    <input
-                        name='us-state' 
-                        id='us-state' 
-                        value={this.state.usState.value} 
-                        className='place-form__state-input'
-                        onChange={e => this.onUsStateChange(e.target.value)} 
-                    />
-                    <br />
-                    {this.state.usState.isTouched && stateError}
-                    <br />
-
-                    <label htmlFor='zipcode' className='place-form__state'>Zipcode:<span>*</span> </label>
-                    <input
-                        type='number'
-                        name='zipcode' 
-                        id='zipcode' 
-                        value={this.state.zipcode.value} 
-                        className='place-form__state-input'
-                        onChange={e => this.onZipcodeChange(e.target.value)} 
-                    />
-                    <br />
-                    {this.state.zipcode.isTouched && zipcodeError}
-                    <br />
-
-                    
-
-                        <label htmlFor='us-state' className='place-form__state'>State:<span>*</span> </label>
-                        <span>* </span>
+                    <div className='place-form__inputs'>
+                        <label htmlFor='us-state' className='place-form__state place-form__label'>State:<span>*</span> </label>
                         <input
                             name='us-state' 
                             id='us-state' 
                             value={this.state.usState.value} 
-                            className='place-form__state-input'
+                            className='place-form__input'
                             onChange={e => this.onUsStateChange(e.target.value)} 
                         />
-                        <br />
-                        {this.state.usState.isTouched && stateError}
-                        <br />
+                    </div>
+                    <br />
+                    {this.state.usState.isTouched && stateError}
+                    <br />
 
-                        <label htmlFor='website' className='place-form__website'>Website: </label>
+                    <div className='place-form__inputs'>
+                        <label htmlFor='zipcode' className='place-form__state place-form__label'>Zipcode:<span>*</span> </label>
+                        <input
+                            type='number'
+                            name='zipcode' 
+                            id='zipcode' 
+                            value={this.state.zipcode.value} 
+                            className='place-form__input'
+                            onChange={e => this.onZipcodeChange(e.target.value)} 
+                        />
+                    </div>
+                    <br />
+                    {this.state.zipcode.isTouched && zipcodeError}
+                    <br />
+
+                    <div className='place-form__inputs'>
+                        <label htmlFor='website' className='place-form__website place-form__label'>Website: </label>
                         <input
                             name='website'
                             id='website'
                             value={this.state.website.value}
-                            className='place-form__website-input'
+                            className='place-form__6input'
                             onChange={e => this.onWebsiteChane(e.target.value)}
                         />
+                    </div>
                         <br />
                         <br />
 
+                    <div className='place-form__inputs'>
                         <label htmlFor='date-of-operation' className='place-form__date-of-operation'>Days of Operation:</label>
-                        <br />
-                        <div>
+                        <br /><br />
+                        <div className='place-form__days'>
                             <input 
                                 type='checkbox' 
                                 name='date-check' 
@@ -372,8 +371,10 @@ class AddPage extends React.Component {
                             {this.state.hourOfOperation.isTouched && stateError}
                             <br />
                         </div>
-                        
-                        <div>
+                    </div>
+
+                    <div className='place-form__inputs'>
+                        <div className='place-form__days'>
                             <input 
                                 type='checkbox' 
                                 name='date-check' 
@@ -400,8 +401,10 @@ class AddPage extends React.Component {
                             {this.state.hourOfOperation.isTouched && stateError}
                             <br />
                         </div>
+                    </div>  
                         
-                        <div>
+                    <div className='place-form__inputs'>
+                        <div className='place-form__days'>
                             <input 
                                 type='checkbox' 
                                 name='date-check' 
@@ -427,8 +430,10 @@ class AddPage extends React.Component {
                             {this.state.hourOfOperation.isTouched && stateError}
                             <br />
                         </div>
+                    </div>
                         
-                        <div>
+                    <div className='place-form__inputs'>
+                        <div className='place-form__days'>
                             <input 
                                 type='checkbox' 
                                 name='date-check' 
@@ -454,8 +459,10 @@ class AddPage extends React.Component {
                             {this.state.hourOfOperation.isTouched && stateError}
                             <br />
                         </div>
+                    </div>
                         
-                        <div>
+                    <div className='place-form__inputs'>
+                        <div className='place-form__days'>
                             <input 
                                 type='checkbox' 
                                 name='date-check' 
@@ -481,8 +488,10 @@ class AddPage extends React.Component {
                             {this.state.hourOfOperation.isTouched && stateError}
                             <br />
                         </div>
+                    </div>
 
-                        <div>
+                    <div className='place-form__inputs'>
+                        <div className='place-form__days'>
                             <input 
                                 type='checkbox' 
                                 name='date-check' 
@@ -508,8 +517,10 @@ class AddPage extends React.Component {
                             {this.state.hourOfOperation.isTouched && stateError}
                             <br />
                         </div>
+                    </div>
                         
-                        <div>
+                    <div className='place-form__inputs'>
+                        <div className='place-form__days'>
                             <input 
                                 type='checkbox' 
                                 name='date-check' 
@@ -535,16 +546,20 @@ class AddPage extends React.Component {
                             {this.state.hourOfOperation.isTouched && stateError}
                             <br />
                         </div>
+                    </div>
 
-
-                        <label htmlFor='location-type' className='place-form__location-types'>Location Type:</label>
-                        <span>* </span>
-                        <select>
-                            <option className='place-form__location-type'>Restaurant</option>
-                            <option className='place-form__location-type'>Food Bank</option>
-                            <option className='place-form__location-type'>School</option>
-                            <option className='place-form__location-type'>Other Non-Profit</option>
-                        </select>
+                    <div className='place-form__inputs'>
+                        <label htmlFor='location-type' className='place-form__location-types'>Location Type:  </label>
+                        <span>*  </span> 
+                        <div className='place-form__select'>
+                            <select>
+                                <option className='place-form__location-type'>Restaurant</option>
+                                <option className='place-form__location-type'>Food Bank</option>
+                                <option className='place-form__location-type'>School</option>
+                                <option className='place-form__location-type'>Other Non-Profit</option>
+                            </select>
+                        </div>
+                    </div>
                         <br />
                         {this.state.typeOfFood.isTouched && typeError}
                         <br />
