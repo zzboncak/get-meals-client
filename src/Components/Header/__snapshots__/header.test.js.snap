@@ -5,50 +5,76 @@ Array [
   <div
     className="header-section__links"
   >
-    <section
-      className="header-section__link"
-    >
-      <a
-        href="/"
-        onClick={[Function]}
+    <div>
+      <section
+        className="header-section__link-homepage"
       >
-        Get Meals
-      </a>
-    </section>
-    <section
-      className="header-section__link header-fullscreen"
+        <a
+          href="/"
+          onClick={[Function]}
+          style={
+            Object {
+              "textDecoration": "none",
+            }
+          }
+        >
+          Get Meals
+        </a>
+      </section>
+    </div>
+    <div
+      className="header-section__nav"
     >
-      <a
-        href="/"
-        onClick={[Function]}
+      <section
+        className="header-section__link header-fullscreen"
       >
-        Home Page
-      </a>
-    </section>
-    <section
-      className="header-section__link header-fullscreen"
-    >
-      <a
-        href="/about"
-        onClick={[Function]}
+        <a
+          href="/"
+          onClick={[Function]}
+          style={
+            Object {
+              "textDecoration": "none",
+            }
+          }
+        >
+          Home Page
+        </a>
+      </section>
+      <section
+        className="header-section__link header-fullscreen"
       >
-        About Us
-      </a>
-    </section>
-    <section
-      className="header-section__link header-fullscreen"
-    >
-      <a
-        href="/add-location"
-        onClick={[Function]}
+        <a
+          href="/about"
+          onClick={[Function]}
+          style={
+            Object {
+              "textDecoration": "none",
+            }
+          }
+        >
+          About Us
+        </a>
+      </section>
+      <section
+        className="header-section__link header-fullscreen"
       >
-        Add Location
-      </a>
-    </section>
-    <section
-      className="header-section__button header-mobile"
-      onClick={[Function]}
-    />
+        <a
+          href="/add-location"
+          onClick={[Function]}
+          style={
+            Object {
+              "textDecoration": "none",
+            }
+          }
+        >
+          Add Location
+        </a>
+      </section>
+      <section
+        className="header-section__button header-mobile"
+        onClick={[Function]}
+      />
+    </div>
   </div>,
   <div
     className="header-mobile__links"
