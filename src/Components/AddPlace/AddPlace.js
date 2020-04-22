@@ -34,14 +34,23 @@ class AddPage extends React.Component {
                 value: '',
                 isTouched: false
             },
+            openHours: {
+                value: '',
+                isTouched: false
+            },
+            closeHours: {
+                value: '',
+                isTouched: false
+            },
             dateOfOperation: {
                 value: '',
                 isTouched: false
             },
             typeOfFood: {
-                value: '',
+                value: 'Food Bank',
                 isTouched: false
             },
+            submitButtonStatus: ''
         }
     }
 
@@ -54,15 +63,37 @@ class AddPage extends React.Component {
 
     handleSubmitAddPlace = (e) => {
         e.preventDefault();
+        
+        if (!!(this.validatePlaceName() ||
+            this.validatePlaceAddress() ||
+            this.validateCity() ||
+            this.validateUsState() ||
+            this.validateZipcode() ||
+            this.validateTypeOfFood())) {
+                console.log(this.validatePlaceName())
+                console.log(this.validatePlaceAddress())
+                console.log(this.validateCity())
+                console.log(this.validateUsState())
+                console.log(this.validateZipcode())
+                console.log(this.validateTypeOfFood())
+                console.log('there is an error, please fix')
+                return
+        }
+
         let newLocation = {
-            location_name: this.state.name,
-            street_address: this.state.placeAddress,
-            city: this.state.city,
-            state: this.state.usState,
-            zip: this.state.zipcode
+            location_name: this.state.name.value,
+            street_address: this.state.placeAddress.value,
+            city: this.state.city.value,
+            state: this.state.usState.value,
+            zip: this.state.zipcode.value,
+            website: this.state.website.value,
+            open_hour: this.state.openHours.value,
+            close_hour: this.state.closeHours.value
         };
 
-        this.context.getGooglePlaceID(this.state.placeAddress + ' ' + this.state.city + ' ' + this.state.usState + ' ' + this.state.zipcode)
+        console.log(newLocation)
+
+        this.context.getGooglePlaceID(this.state.placeAddress.value + ' ' + this.state.city.value + ' ' + this.state.usState.value + ' ' + this.state.zipcode.value)
 
         const url = `https://frozen-everglades-23155.herokuapp.com/api/locations`;
 
@@ -130,109 +161,145 @@ class AddPage extends React.Component {
     
     onNameChange = (newName) => {
         this.setState({
-            name: newName
+            name: {
+                value: newName,
+                isTouched: true
+            }
         });
     }
 
     onAddressChange = (newAddress) => {
         this.setState({
-            placeAddress: newAddress
+            placeAddress: {
+                value: newAddress,
+                isTouched: true
+            }
         });
     }
 
     onCityChange = (newCity) => {
         this.setState({
-            city: newCity
+            city: {
+                value: newCity,
+                isTouched: true
+            }
         });
     }
 
     onUsStateChange = (newState) => {
         this.setState({
-            usState: newState
+            usState: {
+                value: newState,
+                isTouched: true
+            }
         });
     }
 
-
     onWebsiteChange = (newWebsite) => {
         this.setState({
-            website: newWebsite
+            website: {
+                value: newWebsite,
+                isTouched: true
+            }
         });
     }
 
     onZipcodeChange = (newZipcode) => {
         this.setState({
-            zipcode: newZipcode
+            zipcode: {
+                value: newZipcode,
+                isTouched: true
+            }
         });
     }
 
-    onHoursChange = (newHours) => {
+    onOpenHoursChange = (newHours) => {
         this.setState({
-            hourOfOperation: newHours
+            openHours: {
+                value: newHours,
+                isTouched: true
+            }
+        });
+    }
+
+    onCloseHoursChange = (newHours) => {
+        this.setState({
+            closeHours: {
+                value: newHours,
+                isTouched: true
+            }
         });
     }
 
     onDateChange = (newDate) => {
         this.setState({
-            dateOfOperation: newDate
+            dateOfOperation: {
+                value: newDate,
+                isTouched: true
+            }
         });
     }
 
     onTypeChange = (newFood) => {
         this.setState({
-            typeOfFood: newFood
+            typeOfFood: {
+                value: newFood,
+                isTouched: true
+            }
         });
     }
 
     validatePlaceName() {
-        if(this.state.name.length < 1){
-            return 'You must enter a location name';
+        if(!this.state.name.value || this.state.name.value.length < 3){
+            return 'You must enter a location name that is longer than 3 characters';
         }
     }
 
     validatePlaceAddress() {
-        if (this.state.placeAddress === '') {
+        if (this.state.placeAddress.value === '') {
             return 'Your address needs content';
         }
     }
 
     validateCity() {
-        if (this.state.city === '') {
+        if (this.state.city.value === '') {
             return 'You need to enter a City'
         }
     }
 
     validateUsState() {
-        if (this.state.usState === '') {
+        if (this.state.usState.value === '') {
             return 'You need to enter a State'
         }
     }
 
     validateWebsite() {
-        if (this.state.website === '') {
+        if (this.state.website.value === '') {
             return 'You need to enter a website'
         }
     }
 
     validateZipcode() {
-        if (this.state.zipcode === '') {
-            return 'You need to enter a zipcode'
+        if (this.state.zipcode.value === '' || this.state.zipcode.value.length !== 5) {
+            return 'You need to enter a valid zipcode'
         }
     }
 
-    validateHoursOfOperation() {
-        if (this.state.hourOfOperation === '') {
-            return 'You must select hours of operation'
-        }
-    }
+    // validateHoursOfOperation() {
+    //     if (this.state.hourOfOperation.value === '') {
+    //         return 'You must select hours of operation'
+    //     }
+    // }
 
-    validateDateOfOperation() {
-        if (this.state.hourOfOperation === '') {
-            return 'You must select date of operation'
-        }
-    }
+    // Removed the Date of Operation functionality
+    // validateDateOfOperation() {
+    //     if (this.state.hourOfOperation === '') {
+    //         return 'You must select date of operation'
+    //     }
+    // }
 
     validateTypeOfFood() {
-        if (this.state.typeOfFood === '') {
+        if (this.state.typeOfFood.value === '') {
             return 'You must select location type'
         }
     }
@@ -244,340 +311,141 @@ class AddPage extends React.Component {
         const cityError = this.validateCity();
         const stateError = this.validateUsState();
         const zipcodeError = this.validateZipcode();
-        const websiteError = this.validateWebsite()
-        const hoursError = this.validateHoursOfOperation();
-        const dateError = this.validateDateOfOperation();
         const typeError = this.validateTypeOfFood();
-
+            
         return (
             <div>
-                <div className='add-location'>
-                    <h2>This is where you come in!</h2>
-                    <h4>We ask that if you know of any locations that provide free meals to add the contact information so that other users can easily find food by just searching a city in the US</h4>
-                </div>
-            <div className='add-location-form'>
-                <form onSubmit={e => this.handleSubmitAddPlace(e)} className='place-form__start'>
-                    <div className='place-form__inputs'>
-                        <label htmlFor='add-location' className='place-form__location-name place-form__label'>Location name: </label>
-                        <span>*</span>
-                        <input 
-                            type='text' 
-                            placeholder='name of location' 
-                            name='add-location' 
-                            value={this.state.name.value} 
-                            className='place-form__input'
-                            onChange={e => this.onNameChange(e.target.value)} 
-                        />
-                    </div>
-                    <br />
-                    {this.state.name.isTouched && nameError}
-                    <br />
-
-                    <div className='place-form__inputs'>
-                        <label htmlFor='place-address' className='place-form__address place-form__label'>Address:<span>* </span></label>
-                        <input 
-                            name='place-address' 
-                            id='place-address' 
-                            value={this.state.placeAddress.value} 
-                            className='place-form__input'
-                            onChange={e => this.onAddressChange(e.target.value)} 
-                        />
-                    </div>
-                    <br />
-                    {this.state.placeAddress.isTouched && addressError}
-                    <br />
-
-                    <div className='place-form__inputs'>
-                        <label htmlFor='city-location' className='place-form__city place-form__label'>City:<span>*</span> </label>
-                        <input 
-                            name='city-location' 
-                            id='city-location' 
-                            value={this.state.city.value} 
-                            className='place-form__input'
-                            onChange={e => this.onCityChange(e.target.value)} 
-                        />
-                    </div>
-                    <br />
-                    {this.state.city.isTouched && cityError}
-                    <br />
-
-                    <div className='place-form__inputs'>
-                        <label htmlFor='us-state' className='place-form__state place-form__label'>State:<span>*</span> </label>
-                        <input
-                            name='us-state' 
-                            id='us-state' 
-                            value={this.state.usState.value} 
-                            className='place-form__input'
-                            onChange={e => this.onUsStateChange(e.target.value)} 
-                        />
-                    </div>
-                    <br />
-                    {this.state.usState.isTouched && stateError}
-                    <br />
-
-                    <div className='place-form__inputs'>
-                        <label htmlFor='zipcode' className='place-form__state place-form__label'>Zipcode:<span>*</span> </label>
-                        <input
-                            type='number'
-                            name='zipcode' 
-                            id='zipcode' 
-                            value={this.state.zipcode.value} 
-                            className='place-form__input'
-                            onChange={e => this.onZipcodeChange(e.target.value)} 
-                        />
-                    </div>
-                    <br />
-                    {this.state.zipcode.isTouched && zipcodeError}
-                    <br />
-
-                    <div className='place-form__inputs'>
-                        <label htmlFor='website' className='place-form__website place-form__label'>Website: </label>
-                        <input
-                            name='website'
-                            id='website'
-                            value={this.state.website.value}
-                            className='place-form__6input'
-                            onChange={e => this.onWebsiteChane(e.target.value)}
-                        />
-                    </div>
+                {/* this is filler description, we can change it later*/}
+                <h2>This is where you come in!</h2>
+                <h4>We ask that if you know of any locations that provide free meals to add the contact information so that other users can easily find food by just searching a city in the US</h4>
+                <div className='add-location-form'>
+                    <form onSubmit={e => this.handleSubmitAddPlace(e)} className='place-form__start'>
+                        <div className='place-form__inputs'>
+                            <label htmlFor='add-location' className='place-form__location-name place-form__label'>Location name:<span>* </span></label>
+                            <input 
+                                type='text' 
+                                placeholder='name of location' 
+                                name='add-location' 
+                                value={this.state.name.value} 
+                                className='place-form__input'
+                                onChange={e => this.onNameChange(e.target.value)} 
+                            />
+                        </div>
+                        <span className='add-location-form-error-message'>{this.state.name.isTouched && nameError}</span>
                         <br />
                         <br />
 
-                    <div className='place-form__inputs'>
-                        <label htmlFor='date-of-operation' className='place-form__date-of-operation'>Days of Operation:</label>
-                        <br /><br />
-                        <div className='place-form__days'>
+                        <div className='place-form__inputs'>
+                            <label htmlFor='place-address' className='place-form__address place-form__label'>Address:<span>* </span></label>
                             <input 
-                                type='checkbox' 
-                                name='date-check' 
-                                value={this.state.dateOfOperation.value}
-                                className='place-form__day-input'
-                                onChange={e => this.onDateChange(e.target.value)}
+                                name='place-address' 
+                                id='place-address' 
+                                value={this.state.placeAddress.value} 
+                                className='place-form__input'
+                                onChange={e => this.onAddressChange(e.target.value)} 
                             />
-                            <label htmlFor='date-check'>Monday</label>
-                            <label>Open</label>
-                            <input 
-                                type='time' 
-                                name='opening-time'
-                                className='place-form__open-input'
-                                onChange={e => this.onDateChange(e.target.value)}/>
-                            <label>Close</label>
-                            <input 
-                                type='time' 
-                                name='closing-time'
-                                className='place-form__close-input'
-                                onChange={e => this.onDateChange(e.target.value)}/>
-                            <br />
-                            {this.state.dateOfOperation.isTouched && stateError}
-                            {this.state.hourOfOperation.isTouched && stateError}
-                            <br />
                         </div>
-                    </div>
-
-                    <div className='place-form__inputs'>
-                        <div className='place-form__days'>
-                            <input 
-                                type='checkbox' 
-                                name='date-check' 
-                                value={this.state.dateOfOperation.value}
-                                className='place-form__day-input'
-                                onChange={e => this.onDateChange(e.target.value)}
-                            />
-                            <label htmlFor='date-check'>Tuesday</label>
-                            <label>Open</label>
-                            <input 
-                                type='time' 
-                                name='opening-time'
-                                className='place-form__open-input'
-                                onChange={e => this.onDateChange(e.target.value)}
-                                />
-                            <label>Close</label>
-                            <input 
-                                type='time' 
-                                name='closing-time'
-                                className='place-form__close-input'
-                                onChange={e => this.onDateChange(e.target.value)}/>
-                            <br />
-                            {this.state.dateOfOperation.isTouched && stateError}
-                            {this.state.hourOfOperation.isTouched && stateError}
-                            <br />
-                        </div>
-                    </div>  
-                        
-                    <div className='place-form__inputs'>
-                        <div className='place-form__days'>
-                            <input 
-                                type='checkbox' 
-                                name='date-check' 
-                                value={this.state.dateOfOperation.value}
-                                className='place-form__day-input'
-                                onChange={e => this.onDateChange(e.target.value)}
-                            />
-                            <label htmlFor='date-check'>Wednesday</label>
-                            <label>Open</label>
-                            <input 
-                                type='time' 
-                                name='opening-time'
-                                className='place-form__open-input'
-                                onChange={e => this.onDateChange(e.target.value)}/>
-                            <label>Close</label>
-                            <input 
-                                type='time' 
-                                name='closing-time'
-                                className='place-form__close-input'
-                                onChange={e => this.onDateChange(e.target.value)}/>
-                            <br />
-                            {this.state.dateOfOperation.isTouched && stateError}
-                            {this.state.hourOfOperation.isTouched && stateError}
-                            <br />
-                        </div>
-                    </div>
-                        
-                    <div className='place-form__inputs'>
-                        <div className='place-form__days'>
-                            <input 
-                                type='checkbox' 
-                                name='date-check' 
-                                value={this.state.dateOfOperation.value}
-                                className='place-form__day-input'
-                                onChange={e => this.onDateChange(e.target.value)}
-                            />
-                            <label htmlFor='date-check'>Thursday</label>
-                            <label>Open</label>
-                            <input 
-                                type='time' 
-                                name='opening-time'
-                                className='place-form__open-input'
-                                onChange={e => this.onDateChange(e.target.value)}/>
-                            <label>Close</label>
-                            <input 
-                                type='time' 
-                                name='closing-time'
-                                className='place-form__close-input'
-                                onChange={e => this.onDateChange(e.target.value)}/>
-                            <br />
-                            {this.state.dateOfOperation.isTouched && stateError}
-                            {this.state.hourOfOperation.isTouched && stateError}
-                            <br />
-                        </div>
-                    </div>
-                        
-                    <div className='place-form__inputs'>
-                        <div className='place-form__days'>
-                            <input 
-                                type='checkbox' 
-                                name='date-check' 
-                                value={this.state.dateOfOperation.value}
-                                className='place-form__day-input'
-                                onChange={e => this.onDateChange(e.target.value)}
-                            />
-                            <label htmlFor='date-check'>Friday</label>
-                            <label>Open</label>
-                            <input 
-                                type='time' 
-                                name='opening-time'
-                                className='place-form__open-input'
-                                onChange={e => this.onDateChange(e.target.value)}/>
-                            <label>Close</label>
-                            <input 
-                                type='time' 
-                                name='closing-time'
-                                className='place-form__close-input'
-                                onChange={e => this.onDateChange(e.target.value)}/>
-                            <br />
-                            {this.state.dateOfOperation.isTouched && stateError}
-                            {this.state.hourOfOperation.isTouched && stateError}
-                            <br />
-                        </div>
-                    </div>
-
-                    <div className='place-form__inputs'>
-                        <div className='place-form__days'>
-                            <input 
-                                type='checkbox' 
-                                name='date-check' 
-                                value={this.state.dateOfOperation.value}
-                                className='place-form__day-input'
-                                onChange={e => this.onDateChange(e.target.value)}
-                            />
-                            <label htmlFor='date-check'>Saturday</label>
-                            <label>Open</label>
-                            <input 
-                                type='time' 
-                                name='opening-time'
-                                className='place-form__open-input'
-                                onChange={e => this.onDateChange(e.target.value)}/>
-                            <label>Close</label>
-                            <input 
-                                type='time' 
-                                name='closing-time'
-                                className='place-form__close-input'
-                                onChange={e => this.onDateChange(e.target.value)}/>
-                            <br />
-                            {this.state.dateOfOperation.isTouched && stateError}
-                            {this.state.hourOfOperation.isTouched && stateError}
-                            <br />
-                        </div>
-                    </div>
-                        
-                    <div className='place-form__inputs'>
-                        <div className='place-form__days'>
-                            <input 
-                                type='checkbox' 
-                                name='date-check' 
-                                value={this.state.dateOfOperation.value}
-                                className='place-form__day-input'
-                                onChange={e => this.onDateChange(e.target.value)}
-                            />
-                            <label htmlFor='date-check'>Sunday</label>
-                            <label>Open</label>
-                            <input 
-                                type='time' 
-                                name='opening-time'
-                                className='place-form__open-input'
-                                onChange={e => this.onDateChange(e.target.value)}/>
-                            <label>Close</label>
-                            <input 
-                                type='time' 
-                                name='closing-time'
-                                className='place-form__close-input'
-                                onChange={e => this.onDateChange(e.target.value)}/>
-                            <br />
-                            {this.state.dateOfOperation.isTouched && stateError}
-                            {this.state.hourOfOperation.isTouched && stateError}
-                            <br />
-                        </div>
-                    </div>
-
-                    <div className='place-form__inputs'>
-                        <label htmlFor='location-type' className='place-form__location-types'>Location Type:  </label>
-                        <span>*  </span> 
-                        <div className='place-form__select'>
-                            <select>
-                                <option className='place-form__location-type'>Restaurant</option>
-                                <option className='place-form__location-type'>Food Bank</option>
-                                <option className='place-form__location-type'>School</option>
-                                <option className='place-form__location-type'>Other Non-Profit</option>
-                            </select>
-                        </div>
-                    </div>
+                        <span className='add-location-form-error-message'>{this.state.placeAddress.isTouched && addressError}</span>
                         <br />
-                        {this.state.typeOfFood.isTouched && typeError}
                         <br />
-                        
-                        <button onClick={this.context.addNewPlace}
+
+                        <div className='place-form__inputs'>
+                            <label htmlFor='city-location' className='place-form__city place-form__label'>City:<span>*</span> </label>
+                            <input 
+                                name='city-location' 
+                                id='city-location' 
+                                value={this.state.city.value} 
+                                className='place-form__input'
+                                onChange={e => this.onCityChange(e.target.value)} 
+                            />
+                        </div>
+                        <span className='add-location-form-error-message'>{this.state.city.isTouched && cityError}</span>
+                        <br />
+                        <br />
+
+                        <div className='place-form__inputs'>
+                            <label htmlFor='us-state' className='place-form__state place-form__label'>State:<span>*</span> </label>
+                            <input
+                                name='us-state' 
+                                id='us-state' 
+                                value={this.state.usState.value} 
+                                className='place-form__input'
+                                onChange={e => this.onUsStateChange(e.target.value)} 
+                            />
+                        </div>
+                        <span className='add-location-form-error-message'>{this.state.usState.isTouched && stateError}</span>
+                        <br />
+                        <br />
+
+                        <div className='place-form__inputs'>
+                            <label htmlFor='zipcode' className='place-form__state place-form__label'>Zipcode:<span>*</span> </label>
+                            <input
+                                type='number'
+                                name='zipcode' 
+                                id='zipcode' 
+                                value={this.state.zipcode.value} 
+                                className='place-form__input'
+                                onChange={e => this.onZipcodeChange(e.target.value)} 
+                            />
+                        </div>
+                        <span className='add-location-form-error-message'>{this.state.zipcode.isTouched && zipcodeError}</span>
+                        <br />
+                        <br />
+
+                        <div className='place-form__inputs'>
+                            <label htmlFor='website' className='place-form__website place-form__label'>Website: </label>
+                            <input
+                                name='website'
+                                id='website'
+                                value={this.state.website.value}
+                                className='place-form__6input'
+                                onChange={e => this.onWebsiteChange(e.target.value)}
+                            />
+                        </div>
+                        <br />
+                        <br />
+
+                        <div className='place-form__inputs'>
+                            <label htmlFor='date-of-operation' className='place-form__date-of-operation place-form__label'>Hours of Operation:</label>
+                            <label>Open</label>
+                            <input 
+                                type='time' 
+                                name='opening-time'
+                                className='place-form__open-input'
+                                onChange={e => this.onOpenHoursChange(e.target.value)}/>
+                            <br />
+                            <label>Close</label>
+                            <input 
+                                type='time' 
+                                name='closing-time'
+                                className='place-form__close-input'
+                                onChange={e => this.onCloseHoursChange(e.target.value)}/>
+                            <br />
+                            <br />
+                        </div>
+                        <span className='add-location-form-error-message'>{this.state.hourOfOperation.isTouched && stateError}</span>
+                        <br />
+                        <br />
+
+                        <div className='place-form__inputs'>
+                            <label htmlFor='location-type' className='place-form__location-types place-form__label'>Location Type:<span>* </span></label>
+                            <div className='place-form__select'>
+                                <select value={this.state.typeOfFood.value} onChange={e => this.onTypeChange(e.target.value)}>
+                                    <option className='place-form__location-type' selected={true} value='Food Bank'>Food Bank</option>
+                                    <option className='place-form__location-type' value='Restaurant'>Restaurant</option>
+                                    <option className='place-form__location-type' value='School'>School</option>
+                                    <option className='place-form__location-type' value='Other Non-Profit'>Other Non-Profit</option>
+                                </select>
+                            </div>
+                        </div>
+                        <span className='add-location-form-error-message'>{this.state.typeOfFood.isTouched && typeError}</span>
+                        <br />
+                        <br />
+                            
+                        <button
                             type='submit' 
                             className='place-form__button-submit'
-                            disabled={
-                                this.validatePlaceName() ||
-                                this.validatePlaceAddress() ||
-                                this.validateCity() ||
-                                this.validateUsState() ||
-                                this.validateWebsite() ||
-                                this.validateHoursOfOperation() ||
-                                this.validateDateOfOperation() ||
-                                this.validateTypeOfFood() 
-                        }>
+                        >
                             Add this location
                         </button>
                     </form>
