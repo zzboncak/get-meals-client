@@ -11,6 +11,7 @@ flex-wrap: wrap;
 
 .avatar-image {
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   scale: 50%;
 }

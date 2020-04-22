@@ -251,9 +251,10 @@ class AddPage extends React.Component {
 
         return (
             <div>
-                {/* this is filler description, we can change it later*/}
-                <h2>This is where you come in!</h2>
-                <h4>We ask that if you know of any locations that provide free meals to add the contact information so that other users can easily find food by just searching a city in the US</h4>
+                <div className='add-location'>
+                    <h2>This is where you come in!</h2>
+                    <h4>We ask that if you know of any locations that provide free meals to add the contact information so that other users can easily find food by just searching a city in the US</h4>
+                </div>
             <div className='add-location-form'>
                 <form onSubmit={e => this.handleSubmitAddPlace(e)} className='place-form__start'>
                     <div className='place-form__inputs'>
