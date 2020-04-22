@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage component renders the component as expected 1`] = `
+<div>
+  <section
+    className="app-description"
+  >
+    <h1
+      className="hero-header"
+    >
+      Welcome to Get Meals
+    </h1>
+    <p>
+      A platform to find and share locations serving food and meals to those in need.
+    </p>
+    <p>
+      Enter your location on the left to find places serving free food near you. Or, click on the "Add Location" in the nav bar above to report a place that you know is serving free food.
+    </p>
+    <p>
+      Let's all do our part in letting no one go hungry.
+    </p>
+  </section>
+  <section
+    className="main-view home-page__section"
+  >
+    <div
+      className="sidebar-container"
+    >
+      <form
+        className="sidebar-form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="sidebar-form__search"
+        >
+          <label
+            htmlFor="sidebar-form__label"
+          >
+            Search by address, city, or zip code:
+          </label>
+          <input
+            className="sidebar-form__input"
+            id="address"
+            placeholder="New York, NY"
+            required={true}
+            type="text"
+          />
+        </div>
+        <div
+          className="sidebar-form__button-container"
+        >
+          <button
+            className="sidebar-form__submit-button"
+            type="submit"
+          >
+             Search
+          </button>
+        </div>
+      </form>
+    </div>
+    <div
+      className="map"
+    >
+      <div
+        className="mapContainer"
+      >
+        <div
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        />
+      </div>
+    </div>
+  </section>
+</div>
+`;

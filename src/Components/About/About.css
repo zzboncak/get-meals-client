@@ -1,0 +1,22 @@
+.parentView {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+
+.parentView p {
+  align-content: space-between;
+
+}
+
+.avatar-image {
+  height: 150px;
+  border-radius: 50%;
+  scale: 50%;
+}
+
+.item {
+  flex: 1;
+  flex: 1 0 0%;
+
+}
