@@ -358,13 +358,13 @@ class AddPage extends React.Component {
                             <input 
                                 type='time' 
                                 name='opening-time'
-                                className='place-form__open-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}/>
                             <label>Close</label>
                             <input 
                                 type='time' 
                                 name='closing-time'
-                                className='place-form__close-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}/>
                             <br />
                             {this.state.dateOfOperation.isTouched && stateError}
@@ -387,14 +387,14 @@ class AddPage extends React.Component {
                             <input 
                                 type='time' 
                                 name='opening-time'
-                                className='place-form__open-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}
                                 />
                             <label>Close</label>
                             <input 
                                 type='time' 
                                 name='closing-time'
-                                className='place-form__close-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}/>
                             <br />
                             {this.state.dateOfOperation.isTouched && stateError}
@@ -417,13 +417,13 @@ class AddPage extends React.Component {
                             <input 
                                 type='time' 
                                 name='opening-time'
-                                className='place-form__open-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}/>
                             <label>Close</label>
                             <input 
                                 type='time' 
                                 name='closing-time'
-                                className='place-form__close-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}/>
                             <br />
                             {this.state.dateOfOperation.isTouched && stateError}
@@ -446,13 +446,13 @@ class AddPage extends React.Component {
                             <input 
                                 type='time' 
                                 name='opening-time'
-                                className='place-form__open-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}/>
                             <label>Close</label>
                             <input 
                                 type='time' 
                                 name='closing-time'
-                                className='place-form__close-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}/>
                             <br />
                             {this.state.dateOfOperation.isTouched && stateError}
@@ -475,13 +475,13 @@ class AddPage extends React.Component {
                             <input 
                                 type='time' 
                                 name='opening-time'
-                                className='place-form__open-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}/>
                             <label>Close</label>
                             <input 
                                 type='time' 
                                 name='closing-time'
-                                className='place-form__close-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}/>
                             <br />
                             {this.state.dateOfOperation.isTouched && stateError}
@@ -504,13 +504,13 @@ class AddPage extends React.Component {
                             <input 
                                 type='time' 
                                 name='opening-time'
-                                className='place-form__open-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}/>
                             <label>Close</label>
                             <input 
                                 type='time' 
                                 name='closing-time'
-                                className='place-form__close-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}/>
                             <br />
                             {this.state.dateOfOperation.isTouched && stateError}
@@ -533,13 +533,13 @@ class AddPage extends React.Component {
                             <input 
                                 type='time' 
                                 name='opening-time'
-                                className='place-form__open-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}/>
                             <label>Close</label>
                             <input 
                                 type='time' 
                                 name='closing-time'
-                                className='place-form__close-input'
+                                className='place-form__time-input'
                                 onChange={e => this.onDateChange(e.target.value)}/>
                             <br />
                             {this.state.dateOfOperation.isTouched && stateError}
