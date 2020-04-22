@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DrawerToggleButton component renders the component as expected 1`] = `
+<button
+  className="toggle-button"
+>
+  <div
+    className="toggle-button__line"
+  />
+  <div
+    className="toggle-button__line"
+  />
+  <div
+    className="toggle-button__line"
+  />
+</button>
+`;

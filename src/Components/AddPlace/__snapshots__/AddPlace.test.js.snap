@@ -22,11 +22,11 @@ exports[`AddPlace component renders the component as expected 1`] = `
           className="place-form__location-name place-form__label"
           htmlFor="add-location"
         >
-          Location name: 
+          Location name:
+          <span>
+            * 
+          </span>
         </label>
-        <span>
-          *
-        </span>
         <input
           className="place-form__input"
           name="add-location"
@@ -36,6 +36,9 @@ exports[`AddPlace component renders the component as expected 1`] = `
           value=""
         />
       </div>
+      <span
+        className="add-location-form-error-message"
+      />
       <br />
       <br />
       <div
@@ -58,6 +61,9 @@ exports[`AddPlace component renders the component as expected 1`] = `
           value=""
         />
       </div>
+      <span
+        className="add-location-form-error-message"
+      />
       <br />
       <br />
       <div
@@ -81,6 +87,9 @@ exports[`AddPlace component renders the component as expected 1`] = `
           value=""
         />
       </div>
+      <span
+        className="add-location-form-error-message"
+      />
       <br />
       <br />
       <div
@@ -104,6 +113,9 @@ exports[`AddPlace component renders the component as expected 1`] = `
           value=""
         />
       </div>
+      <span
+        className="add-location-form-error-message"
+      />
       <br />
       <br />
       <div
@@ -128,6 +140,9 @@ exports[`AddPlace component renders the component as expected 1`] = `
           value=""
         />
       </div>
+      <span
+        className="add-location-form-error-message"
+      />
       <br />
       <br />
       <div
@@ -153,329 +168,88 @@ exports[`AddPlace component renders the component as expected 1`] = `
         className="place-form__inputs"
       >
         <label
-          className="place-form__date-of-operation"
+          className="place-form__date-of-operation place-form__label"
           htmlFor="date-of-operation"
         >
-          Days of Operation:
+          Hours of Operation:
         </label>
+        <label>
+          Open
+        </label>
+        <input
+          className="place-form__open-input"
+          name="opening-time"
+          onChange={[Function]}
+          type="time"
+        />
+        <br />
+        <label>
+          Close
+        </label>
+        <input
+          className="place-form__close-input"
+          name="closing-time"
+          onChange={[Function]}
+          type="time"
+        />
         <br />
         <br />
-        <div
-          className="place-form__days"
-        >
-          <input
-            className="place-form__day-input"
-            name="date-check"
-            onChange={[Function]}
-            type="checkbox"
-            value=""
-          />
-          <label
-            htmlFor="date-check"
-          >
-            Monday
-          </label>
-          <label>
-            Open
-          </label>
-          <input
-            className="place-form__open-input"
-            name="opening-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <label>
-            Close
-          </label>
-          <input
-            className="place-form__close-input"
-            name="closing-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <br />
-          <br />
-        </div>
       </div>
-      <div
-        className="place-form__inputs"
-      >
-        <div
-          className="place-form__days"
-        >
-          <input
-            className="place-form__day-input"
-            name="date-check"
-            onChange={[Function]}
-            type="checkbox"
-            value=""
-          />
-          <label
-            htmlFor="date-check"
-          >
-            Tuesday
-          </label>
-          <label>
-            Open
-          </label>
-          <input
-            className="place-form__open-input"
-            name="opening-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <label>
-            Close
-          </label>
-          <input
-            className="place-form__close-input"
-            name="closing-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <br />
-          <br />
-        </div>
-      </div>
-      <div
-        className="place-form__inputs"
-      >
-        <div
-          className="place-form__days"
-        >
-          <input
-            className="place-form__day-input"
-            name="date-check"
-            onChange={[Function]}
-            type="checkbox"
-            value=""
-          />
-          <label
-            htmlFor="date-check"
-          >
-            Wednesday
-          </label>
-          <label>
-            Open
-          </label>
-          <input
-            className="place-form__open-input"
-            name="opening-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <label>
-            Close
-          </label>
-          <input
-            className="place-form__close-input"
-            name="closing-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <br />
-          <br />
-        </div>
-      </div>
-      <div
-        className="place-form__inputs"
-      >
-        <div
-          className="place-form__days"
-        >
-          <input
-            className="place-form__day-input"
-            name="date-check"
-            onChange={[Function]}
-            type="checkbox"
-            value=""
-          />
-          <label
-            htmlFor="date-check"
-          >
-            Thursday
-          </label>
-          <label>
-            Open
-          </label>
-          <input
-            className="place-form__open-input"
-            name="opening-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <label>
-            Close
-          </label>
-          <input
-            className="place-form__close-input"
-            name="closing-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <br />
-          <br />
-        </div>
-      </div>
-      <div
-        className="place-form__inputs"
-      >
-        <div
-          className="place-form__days"
-        >
-          <input
-            className="place-form__day-input"
-            name="date-check"
-            onChange={[Function]}
-            type="checkbox"
-            value=""
-          />
-          <label
-            htmlFor="date-check"
-          >
-            Friday
-          </label>
-          <label>
-            Open
-          </label>
-          <input
-            className="place-form__open-input"
-            name="opening-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <label>
-            Close
-          </label>
-          <input
-            className="place-form__close-input"
-            name="closing-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <br />
-          <br />
-        </div>
-      </div>
-      <div
-        className="place-form__inputs"
-      >
-        <div
-          className="place-form__days"
-        >
-          <input
-            className="place-form__day-input"
-            name="date-check"
-            onChange={[Function]}
-            type="checkbox"
-            value=""
-          />
-          <label
-            htmlFor="date-check"
-          >
-            Saturday
-          </label>
-          <label>
-            Open
-          </label>
-          <input
-            className="place-form__open-input"
-            name="opening-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <label>
-            Close
-          </label>
-          <input
-            className="place-form__close-input"
-            name="closing-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <br />
-          <br />
-        </div>
-      </div>
-      <div
-        className="place-form__inputs"
-      >
-        <div
-          className="place-form__days"
-        >
-          <input
-            className="place-form__day-input"
-            name="date-check"
-            onChange={[Function]}
-            type="checkbox"
-            value=""
-          />
-          <label
-            htmlFor="date-check"
-          >
-            Sunday
-          </label>
-          <label>
-            Open
-          </label>
-          <input
-            className="place-form__open-input"
-            name="opening-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <label>
-            Close
-          </label>
-          <input
-            className="place-form__close-input"
-            name="closing-time"
-            onChange={[Function]}
-            type="time"
-          />
-          <br />
-          <br />
-        </div>
-      </div>
+      <span
+        className="add-location-form-error-message"
+      />
+      <br />
+      <br />
       <div
         className="place-form__inputs"
       >
         <label
-          className="place-form__location-types"
+          className="place-form__location-types place-form__label"
           htmlFor="location-type"
         >
-          Location Type:  
+          Location Type:
+          <span>
+            * 
+          </span>
         </label>
-        <span>
-          *  
-        </span>
         <div
           className="place-form__select"
         >
-          <select>
+          <select
+            onChange={[Function]}
+            value="Food Bank"
+          >
             <option
               className="place-form__location-type"
-            >
-              Restaurant
-            </option>
-            <option
-              className="place-form__location-type"
+              selected={true}
+              value="Food Bank"
             >
               Food Bank
             </option>
             <option
               className="place-form__location-type"
+              value="Restaurant"
+            >
+              Restaurant
+            </option>
+            <option
+              className="place-form__location-type"
+              value="School"
             >
               School
             </option>
             <option
               className="place-form__location-type"
+              value="Other Non-Profit"
             >
               Other Non-Profit
             </option>
           </select>
         </div>
       </div>
+      <span
+        className="add-location-form-error-message"
+      />
       <br />
       <br />
       <button

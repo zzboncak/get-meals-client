@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar component renders the component as expected 1`] = `
+<header
+  className="toolbar"
+>
+  <nav
+    className="toolbar_navigation"
+  >
+    <div
+      className="toolbar_toggle-button"
+    >
+      <button
+        className="toggle-button"
+      >
+        <div
+          className="toggle-button__line"
+        />
+        <div
+          className="toggle-button__line"
+        />
+        <div
+          className="toggle-button__line"
+        />
+      </button>
+    </div>
+    <div
+      className="toolbar_logo"
+    >
+      <a
+        href="/"
+      >
+        GET MEALS
+      </a>
+    </div>
+    <div
+      className="spacer"
+    />
+    <div
+      className="toolbar_navigation-items"
+    >
+      <ul>
+        <li>
+          <a
+            aria-current="page"
+            className="active"
+            href="/"
+            onClick={[Function]}
+            style={Object {}}
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            href="/add-location"
+            onClick={[Function]}
+          >
+            Add Location
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            href="/About"
+            onClick={[Function]}
+          >
+            About Us
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+`;
