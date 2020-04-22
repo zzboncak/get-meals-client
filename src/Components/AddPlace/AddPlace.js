@@ -257,7 +257,8 @@ class AddPage extends React.Component {
             <div className='add-location-form'>
                 <form onSubmit={e => this.handleSubmitAddPlace(e)} className='place-form__start'>
                     <div className='place-form__inputs'>
-                        <label htmlFor='add-location' className='place-form__location-name place-form__label'>Location name: <span>*</span> </label>
+                        <label htmlFor='add-location' className='place-form__location-name place-form__label'>Location name: </label>
+                        <span>*</span>
                         <input 
                             type='text' 
                             placeholder='name of location' 
@@ -548,8 +549,8 @@ class AddPage extends React.Component {
                     </div>
 
                     <div className='place-form__inputs'>
-                        <label htmlFor='location-type' className='place-form__location-types'>Location Type:</label>
-                        <span>* </span>
+                        <label htmlFor='location-type' className='place-form__location-types'>Location Type:  </label>
+                        <span>*  </span> 
                         <div className='place-form__select'>
                             <select>
                                 <option className='place-form__location-type'>Restaurant</option>
