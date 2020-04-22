@@ -36,7 +36,7 @@ To be added when Styling is complete.
 
 [X] The name of your app at the top of the file.  
 
-[ ] A link to your live app. 
+[X] A link to your live app. 
 
 [   ]  Screenshot(s) of your app. This makes your app description much easier to understand. 
 
