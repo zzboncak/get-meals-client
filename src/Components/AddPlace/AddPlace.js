@@ -35,11 +35,11 @@ class AddPage extends React.Component {
                 isTouched: false
             },
             openHours: {
-                value: '',
+                value: null,
                 isTouched: false
             },
             closeHours: {
-                value: '',
+                value: null,
                 isTouched: false
             },
             dateOfOperation: {
@@ -431,7 +431,7 @@ class AddPage extends React.Component {
                             <label htmlFor='location-type' className='place-form__location-types place-form__label'>Location Type:<span>* </span></label>
                             <div className='place-form__select'>
                                 <select value={this.state.typeOfFood.value} onChange={e => this.onTypeChange(e.target.value)}>
-                                    <option className='place-form__location-type' selected={true} value='Food Bank'>Food Bank</option>
+                                    <option className='place-form__location-type' value='Food Bank'>Food Bank</option>
                                     <option className='place-form__location-type' value='Restaurant'>Restaurant</option>
                                     <option className='place-form__location-type' value='School'>School</option>
                                     <option className='place-form__location-type' value='Other Non-Profit'>Other Non-Profit</option>
