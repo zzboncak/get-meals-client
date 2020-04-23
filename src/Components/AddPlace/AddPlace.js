@@ -57,27 +57,27 @@ class AddPage extends React.Component {
     static contextType = GetMealsContext;
 
     generatePlaceId = () => {
-        let placeId = Math.ceil(Math.random()*1000000);
+        let placeId = Math.ceil(Math.random() * 1000000);
         return placeId;
     }
 
     handleSubmitAddPlace = (e) => {
         e.preventDefault();
-        
+
         if (!!(this.validatePlaceName() ||
             this.validatePlaceAddress() ||
             this.validateCity() ||
             this.validateUsState() ||
             this.validateZipcode() ||
             this.validateTypeOfFood())) {
-                console.log(this.validatePlaceName())
-                console.log(this.validatePlaceAddress())
-                console.log(this.validateCity())
-                console.log(this.validateUsState())
-                console.log(this.validateZipcode())
-                console.log(this.validateTypeOfFood())
-                console.log('there is an error, please fix')
-                return
+            console.log(this.validatePlaceName())
+            console.log(this.validatePlaceAddress())
+            console.log(this.validateCity())
+            console.log(this.validateUsState())
+            console.log(this.validateZipcode())
+            console.log(this.validateTypeOfFood())
+            console.log('there is an error, please fix')
+            return
         }
 
         let newLocation = {
@@ -107,7 +107,7 @@ class AddPage extends React.Component {
 
         fetch(url, options)
             .then(res => {
-                if(!res.ok) {
+                if (!res.ok) {
                     throw new Error('Something went wrong, please try again later');
                 }
                 return res.json();
@@ -135,7 +135,7 @@ class AddPage extends React.Component {
                         isTouched: false
                     },
                     website: {
-                        value:'',
+                        value: '',
                         isTouched: false
                     },
                     hourOfOperation: {
@@ -158,7 +158,7 @@ class AddPage extends React.Component {
                 console.log(err)
             });
     }
-    
+
     onNameChange = (newName) => {
         this.setState({
             name: {
@@ -250,7 +250,7 @@ class AddPage extends React.Component {
     }
 
     validatePlaceName() {
-        if(!this.state.name.value || this.state.name.value.length < 3){
+        if (!this.state.name.value || this.state.name.value.length < 3) {
             return 'You must enter a location name that is longer than 3 characters';
         }
     }
@@ -312,23 +312,25 @@ class AddPage extends React.Component {
         const stateError = this.validateUsState();
         const zipcodeError = this.validateZipcode();
         const typeError = this.validateTypeOfFood();
-            
+
         return (
             <div>
                 {/* this is filler description, we can change it later*/}
-                <h2>This is where you come in!</h2>
-                <h4>We ask that if you know of any locations that provide free meals to add the contact information so that other users can easily find food by just searching a city in the US</h4>
+                <section className='add-location-header'>
+                    <h2>This is where you come in!</h2>
+                    <h4>We ask that if you know of any locations that provide free meals to add the contact information so that other users can easily find food by just searching a city in the US</h4>
+                </section>
                 <div className='add-location-form'>
                     <form onSubmit={e => this.handleSubmitAddPlace(e)} className='place-form__start'>
                         <div className='place-form__inputs'>
                             <label htmlFor='add-location' className='place-form__location-name place-form__label'>Location name:<span>* </span></label>
-                            <input 
-                                type='text' 
-                                placeholder='name of location' 
-                                name='add-location' 
-                                value={this.state.name.value} 
+                            <input
+                                type='text'
+                                placeholder='name of location'
+                                name='add-location'
+                                value={this.state.name.value}
                                 className='place-form__input'
-                                onChange={e => this.onNameChange(e.target.value)} 
+                                onChange={e => this.onNameChange(e.target.value)}
                             />
                         </div>
                         <span className='add-location-form-error-message'>{this.state.name.isTouched && nameError}</span>
@@ -337,12 +339,12 @@ class AddPage extends React.Component {
 
                         <div className='place-form__inputs'>
                             <label htmlFor='place-address' className='place-form__address place-form__label'>Address:<span>* </span></label>
-                            <input 
-                                name='place-address' 
-                                id='place-address' 
-                                value={this.state.placeAddress.value} 
+                            <input
+                                name='place-address'
+                                id='place-address'
+                                value={this.state.placeAddress.value}
                                 className='place-form__input'
-                                onChange={e => this.onAddressChange(e.target.value)} 
+                                onChange={e => this.onAddressChange(e.target.value)}
                             />
                         </div>
                         <span className='add-location-form-error-message'>{this.state.placeAddress.isTouched && addressError}</span>
@@ -351,12 +353,12 @@ class AddPage extends React.Component {
 
                         <div className='place-form__inputs'>
                             <label htmlFor='city-location' className='place-form__city place-form__label'>City:<span>*</span> </label>
-                            <input 
-                                name='city-location' 
-                                id='city-location' 
-                                value={this.state.city.value} 
+                            <input
+                                name='city-location'
+                                id='city-location'
+                                value={this.state.city.value}
                                 className='place-form__input'
-                                onChange={e => this.onCityChange(e.target.value)} 
+                                onChange={e => this.onCityChange(e.target.value)}
                             />
                         </div>
                         <span className='add-location-form-error-message'>{this.state.city.isTouched && cityError}</span>
@@ -366,11 +368,11 @@ class AddPage extends React.Component {
                         <div className='place-form__inputs'>
                             <label htmlFor='us-state' className='place-form__state place-form__label'>State:<span>*</span> </label>
                             <input
-                                name='us-state' 
-                                id='us-state' 
-                                value={this.state.usState.value} 
+                                name='us-state'
+                                id='us-state'
+                                value={this.state.usState.value}
                                 className='place-form__input'
-                                onChange={e => this.onUsStateChange(e.target.value)} 
+                                onChange={e => this.onUsStateChange(e.target.value)}
                             />
                         </div>
                         <span className='add-location-form-error-message'>{this.state.usState.isTouched && stateError}</span>
@@ -381,11 +383,11 @@ class AddPage extends React.Component {
                             <label htmlFor='zipcode' className='place-form__state place-form__label'>Zipcode:<span>*</span> </label>
                             <input
                                 type='number'
-                                name='zipcode' 
-                                id='zipcode' 
-                                value={this.state.zipcode.value} 
+                                name='zipcode'
+                                id='zipcode'
+                                value={this.state.zipcode.value}
                                 className='place-form__input'
-                                onChange={e => this.onZipcodeChange(e.target.value)} 
+                                onChange={e => this.onZipcodeChange(e.target.value)}
                             />
                         </div>
                         <span className='add-location-form-error-message'>{this.state.zipcode.isTouched && zipcodeError}</span>
@@ -408,18 +410,18 @@ class AddPage extends React.Component {
                         <div className='place-form__inputs'>
                             <label htmlFor='date-of-operation' className='place-form__date-of-operation place-form__label'>Hours of Operation:</label>
                             <label>Open</label>
-                            <input 
-                                type='time' 
+                            <input
+                                type='time'
                                 name='opening-time'
                                 className='place-form__open-input'
-                                onChange={e => this.onOpenHoursChange(e.target.value)}/>
+                                onChange={e => this.onOpenHoursChange(e.target.value)} />
                             <br />
                             <label>Close</label>
-                            <input 
-                                type='time' 
+                            <input
+                                type='time'
                                 name='closing-time'
                                 className='place-form__close-input'
-                                onChange={e => this.onCloseHoursChange(e.target.value)}/>
+                                onChange={e => this.onCloseHoursChange(e.target.value)} />
                             <br />
                             <br />
                         </div>
@@ -441,9 +443,9 @@ class AddPage extends React.Component {
                         <span className='add-location-form-error-message'>{this.state.typeOfFood.isTouched && typeError}</span>
                         <br />
                         <br />
-                            
+
                         <button
-                            type='submit' 
+                            type='submit'
                             className='place-form__button-submit'
                         >
                             Add this location
@@ -456,6 +458,6 @@ class AddPage extends React.Component {
 }
 
 
-    
+
 
 export default AddPage
