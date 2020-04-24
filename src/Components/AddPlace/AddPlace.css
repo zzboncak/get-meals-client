@@ -10,6 +10,10 @@
     display: flex;
 }
 
+.add-location-header {
+    padding: 0px 10px;
+}
+
 .add-location {
     width: 95%;
     margin-left: auto;
@@ -20,7 +24,7 @@
 
 form {
     margin: 20px 100px;
-    padding: 20px 75px;
+    padding: 20px 5px;
     text-align: center;
 }
 
@@ -35,7 +39,7 @@ label {
     flex-direction: row;
     text-align: left;
     /* padding: 0px 0px; */
-    margin: 0px 64px;
+    /* margin: 0px 64px; */
     flex: 1 1;
 }
 
@@ -116,11 +120,15 @@ button:active {
     color: red;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 400px) {
     .place-form__days {
         display: flex;
         flex-direction: column;
         flex: 1 1;
+    }
+
+    .place-form__label {
+        margin: 0px 64px;
     }
 }
 
