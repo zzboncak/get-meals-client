@@ -10,11 +10,12 @@ import GetMealsContext from './GetMealsContext';
 import Toolbar from './Components/Toolbar/Toolbar';
 import SideDrawer from './Components/SideDrawer/SideDrawer';
 import Backdrop from './Components/Backdrop/Backdrop';
+import ErrorBoundary from './ErrorBoundary'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state={
+    this.state = {
       locations: [],
       latlonArray: [40.7127753, -74.0059728],
       sideDrawerOpen: false
@@ -24,12 +25,12 @@ class App extends React.Component {
   // start code added by Peggy for the Nav Bar.
   drawerToggleClickHandler = () => {
     this.setState((prevState) => {
-      return {sideDrawerOpen: !prevState.sideDrawerOpen};
+      return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
   };
 
   backdropClickHandler = () => {
-    this.setState({sideDrawerOpen: false});
+    this.setState({ sideDrawerOpen: false });
   };
   // End Code added by Peggy for the Nav Bar
 
@@ -37,7 +38,7 @@ class App extends React.Component {
     fetch('https://frozen-everglades-23155.herokuapp.com/api/locations')
       .then(res => res.json())
       .then(locations => {
-          this.setState({ locations })
+        this.setState({ locations })
       })
   }
 
@@ -55,31 +56,31 @@ class App extends React.Component {
     const searchUrl = 'https://maps.googleapis.com/maps/api/geocode/json'
 
     const params = {
-        place_id: placeIdInput,
-        key: process.env.REACT_APP_GEOCODE_KEY
+      place_id: placeIdInput,
+      key: process.env.REACT_APP_GEOCODE_KEY
     };
 
     const queryString = this.formatQueryParams(params)
     const url = searchUrl + '?' + queryString;
-    
+
     fetch(proxyurl + url)
-    .then(response => {
+      .then(response => {
         if (response.ok) {
-                return response.json();
-            }
-            throw new Error(response.statusText);
+          return response.json();
+        }
+        throw new Error(response.statusText);
+      })
+      .then(responseJson => {
+        let locationLat = responseJson.results[0].geometry.location.lat;
+        let locationLon = responseJson.results[0].geometry.location.lng;
+        let latlonArray = [locationLat, locationLon];
+        this.setState({
+          latlonArray
         })
-        .then(responseJson => {
-            let locationLat = responseJson.results[0].geometry.location.lat;
-            let locationLon = responseJson.results[0].geometry.location.lng;
-            let latlonArray = [locationLat, locationLon];
-            this.setState({
-              latlonArray
-            })
-        })
-        .catch(err => {
-            console.log('Error ocurred')
-        });
+      })
+      .catch(err => {
+        console.log('Error ocurred')
+      });
   }
 
   // get the place ID from the user input address
@@ -87,29 +88,29 @@ class App extends React.Component {
     //potential firewall situation with using a work laptop. Still need to determine the why
     const proxyurl = "https://cors-anywhere.herokuapp.com/"
     const searchUrl = 'https://maps.googleapis.com/maps/api/place/autocomplete/json'
-    
+
     const params = {
-        input: userInput,
-        key: process.env.REACT_APP_GEOCODE_KEY
+      input: userInput,
+      key: process.env.REACT_APP_GEOCODE_KEY
     };
 
     const queryString = this.formatQueryParams(params)
     const url = searchUrl + '?' + queryString;
 
     fetch(proxyurl + url)
-    .then(response => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw new Error(response.statusText);
-        })
-        .then(responseJson => {
-            let googleAddressPlaceID = responseJson.predictions[0].place_id;
-            this.getLatlng(googleAddressPlaceID);
-        })
-        .catch(err => {
-            console.log(`Error ocurred getting place ID`);
-        });
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error(response.statusText);
+      })
+      .then(responseJson => {
+        let googleAddressPlaceID = responseJson.predictions[0].place_id;
+        this.getLatlng(googleAddressPlaceID);
+      })
+      .catch(err => {
+        console.log(`Error ocurred getting place ID`);
+      });
   }
 
   render() {
@@ -131,30 +132,33 @@ class App extends React.Component {
     }
 
     return (
-      
+
       // Start code added by Peggy for the Nav Bar
       <React.Fragment>
-        <div style={{height: '100%'}}>
+        <div style={{ height: '100%' }}>
           <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
           <SideDrawer show={this.state.sideDrawerOpen} />
           {backdrop}
         </div>
-      {/* // End Code added by Peggy for the Nav Bar */}
-        
+        {/* // End Code added by Peggy for the Nav Bar */}
+
         <div className="App">
           <GetMealsContext.Provider value={contextValue}>
-            <main className='app__main'>
-              <Route exact path='/' component={HomePage} />
-              <Route exact path='/about' component={About} />
-              <Route exact path='/add-location' component={AddPlace} />
-            </main>
+            <ErrorBoundary>
+              <main className='app__main'>
+                <Route exact path='/' component={HomePage} />
+                <Route exact path='/about' component={About} />
+                <Route exact path='/add-location' component={AddPlace} />
+
+              </main>
+            </ErrorBoundary>
             <footer className='app__footer'>
               <Footer />
             </footer>
-            </GetMealsContext.Provider>
+          </GetMealsContext.Provider>
         </div>
 
-      </React.Fragment> 
+      </React.Fragment>
     );
   }
 }
