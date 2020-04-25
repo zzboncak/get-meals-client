@@ -121,7 +121,7 @@ button:active {
     }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 760px) {
     .place-form__label {
         display: flex;
         flex-direction: row;
