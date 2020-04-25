@@ -27,7 +27,7 @@ img.map {
     overflow: hidden;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 500px) {
     .home-page__section {
         flex-direction: row;
         justify-content: space-between;
