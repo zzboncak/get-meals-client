@@ -468,6 +468,14 @@ class AddPage extends React.Component {
                         <button
                             type='submit'
                             className='place-form__button-submit'
+                            disabled={
+                                nameError ||
+                                addressError ||
+                                cityError ||
+                                stateError ||
+                                zipcodeError ||
+                                typeError
+                            }
                         >
                             Add this location
                         </button>
