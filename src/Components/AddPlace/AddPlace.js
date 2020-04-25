@@ -50,6 +50,10 @@ class AddPage extends React.Component {
                 value: 'Food Bank',
                 isTouched: false
             },
+            description: {
+                value: '',
+                isTouched: false
+            },
             submitButtonStatus: ''
         }
     }
@@ -88,7 +92,9 @@ class AddPage extends React.Component {
             zip: this.state.zipcode.value,
             website: this.state.website.value,
             open_hour: this.state.openHours.value,
-            close_hour: this.state.closeHours.value
+            close_hour: this.state.closeHours.value,
+            location_description: this.state.description.value,
+            location_type: this.state.typeOfFood.value
         };
 
         console.log(newLocation)
@@ -113,6 +119,7 @@ class AddPage extends React.Component {
                 return res.json();
             })
             .then(data => {
+                console.log(data);
                 this.setState({
                     name: {
                         value: '',
@@ -150,6 +157,10 @@ class AddPage extends React.Component {
                         value: '',
                         isTouched: false
                     },
+                    description: {
+                        value: '',
+                        isTouched: false
+                    }
                 });
                 this.context.locationFetch();
                 this.props.history.push('/');
@@ -244,6 +255,15 @@ class AddPage extends React.Component {
         this.setState({
             typeOfFood: {
                 value: newFood,
+                isTouched: true
+            }
+        });
+    }
+
+    onDescriptionChange = (description) => {
+        this.setState({
+            description: {
+                value: description,
                 isTouched: true
             }
         });
@@ -398,7 +418,7 @@ class AddPage extends React.Component {
                                 name='website'
                                 id='website'
                                 value={this.state.website.value}
-                                className='place-form__6input'
+                                className='place-form__input'
                                 onChange={e => this.onWebsiteChange(e.target.value)}
                             />
                         </div>
@@ -439,6 +459,19 @@ class AddPage extends React.Component {
                             </div>
                         </div>
                         <span className='add-location-form-error-message'>{this.state.typeOfFood.isTouched && typeError}</span>
+                        <br />
+                        <br />
+
+                        <div className='place-form__inputs'>
+                            <label htmlFor='description' className='place-form__description place-form__label'>Location Description: </label>
+                            <input
+                                name='description'
+                                id='description'
+                                value={this.state.description.value}
+                                className='place-form__input'
+                                onChange={e => this.onDescriptionChange(e.target.value)}
+                            />
+                        </div>
                         <br />
                         <br />
                             
