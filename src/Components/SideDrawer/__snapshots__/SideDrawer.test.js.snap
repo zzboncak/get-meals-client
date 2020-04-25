@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideDrawer component renders the component as expected 1`] = `
+<nav
+  className="side-drawer"
+>
+  <ul>
+    <li>
+      <a
+        aria-current="page"
+        className="active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/add-location"
+        onClick={[Function]}
+      >
+        Add Location
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/About"
+        onClick={[Function]}
+      >
+        About Us
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
