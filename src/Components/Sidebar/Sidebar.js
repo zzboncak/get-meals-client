@@ -11,7 +11,7 @@ class Sidebar extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        let {address, radius } = e.target;
+        let {address} = e.target;
         this.context.getGooglePlaceID(address.value);
     }
     
@@ -26,13 +26,6 @@ class Sidebar extends Component {
                             </label>
                             <input className="sidebar-form__input" type="text" placeholder="New York, NY" id="address" required />
                         </div>
-
-                        {/* <div className="sidebar-form__results-within">
-                            <label htmlFor="sidebar-form__results-within-label">
-                                Show Results Within (Miles)
-                            </label>
-                            <input className="sidebar-form__results-with-input" type="text" placeholder="10" id="radius" />
-                        </div> */}
 
                         <div className="sidebar-form__button-container">
                         <button className="sidebar-form__submit-button" type="submit"> Search</button>
