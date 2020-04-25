@@ -50,7 +50,8 @@ class AddPage extends React.Component {
                 value: 'Food Bank',
                 isTouched: false
             },
-            submitButtonStatus: ''
+            submitButtonStatus: '',
+            error: null,
         }
     }
 
@@ -64,21 +65,23 @@ class AddPage extends React.Component {
     handleSubmitAddPlace = (e) => {
         e.preventDefault();
 
-        if (!!(this.validatePlaceName() ||
-            this.validatePlaceAddress() ||
-            this.validateCity() ||
-            this.validateUsState() ||
-            this.validateZipcode() ||
-            this.validateTypeOfFood())) {
-            console.log(this.validatePlaceName())
-            console.log(this.validatePlaceAddress())
-            console.log(this.validateCity())
-            console.log(this.validateUsState())
-            console.log(this.validateZipcode())
-            console.log(this.validateTypeOfFood())
-            console.log('there is an error, please fix')
-            return
-        }
+
+        // if (!!(this.validatePlaceName() ||
+        //     this.validatePlaceAddress() ||
+        //     this.validateCity() ||
+        //     this.validateUsState() ||
+        //     this.validateZipcode() ||
+        //     this.validateTypeOfFood())) {
+        //         console.log(this.validatePlaceName())
+        //         console.log(this.validatePlaceAddress())
+        //         console.log(this.validateCity())
+        //         console.log(this.validateUsState())
+        //         console.log(this.validateZipcode())
+        //         console.log(this.validateTypeOfFood())
+        //         console.log('there is an error, please fix')
+        //         return
+        // }
+
 
         let newLocation = {
             location_name: this.state.name.value,
@@ -107,8 +110,10 @@ class AddPage extends React.Component {
 
         fetch(url, options)
             .then(res => {
-                if (!res.ok) {
-                    throw new Error('Something went wrong, please try again later');
+
+                if(!res.ok) {
+                    return res.json().then(error => Promise.reject(error))
+
                 }
                 return res.json();
             })
@@ -154,8 +159,9 @@ class AddPage extends React.Component {
                 this.context.locationFetch();
                 this.props.history.push('/');
             })
-            .catch(err => {
-                console.log(err)
+            .catch(error => {
+                console.error(error)
+                this.setState({ error })
             });
     }
 
@@ -250,38 +256,46 @@ class AddPage extends React.Component {
     }
 
     validatePlaceName() {
-        if (!this.state.name.value || this.state.name.value.length < 3) {
+        const name = this.state.name.value.trim()
+        if(name.length === 0 || name.length < 3){
             return 'You must enter a location name that is longer than 3 characters';
         }
     }
 
     validatePlaceAddress() {
-        if (this.state.placeAddress.value === '') {
-            return 'Your address needs content';
+        const address = this.state.placeAddress.value.trim()
+        if (address.length === 0) {
+            return 'You need to enter an Address';
         }
     }
 
     validateCity() {
-        if (this.state.city.value === '') {
+        const city = this.state.city.value.trim()
+        if (city.length === 0) {
             return 'You need to enter a City'
         }
     }
 
     validateUsState() {
-        if (this.state.usState.value === '') {
+        const usState = this.state.usState.value.trim()
+        if (usState.length === 0) {
             return 'You need to enter a State'
         }
     }
 
-    validateWebsite() {
-        if (this.state.website.value === '') {
-            return 'You need to enter a website'
-        }
-    }
+    // validateWebsite() {
+    //     const website = this.state.website.value.trim()
+    //     if (website.length === 0) {
+    //         return 'You need to enter a website'
+    //     }
+    // }
 
     validateZipcode() {
-        if (this.state.zipcode.value === '' || this.state.zipcode.value.length !== 5) {
+        const zipcode = this.state.zipcode.value.trim()
+        if (zipcode.length === 0 || zipcode.length !== 5 ) {
             return 'You need to enter a valid zipcode'
+        } else if (isNaN(zipcode)) {
+            return 'Zipcode must be a number'
         }
     }
 
@@ -299,7 +313,8 @@ class AddPage extends React.Component {
     // }
 
     validateTypeOfFood() {
-        if (this.state.typeOfFood.value === '') {
+        const typeOfFood = this.state.typeOfFood.value.trim()
+        if (typeOfFood.length === 0) {
             return 'You must select location type'
         }
     }
@@ -312,6 +327,12 @@ class AddPage extends React.Component {
         const stateError = this.validateUsState();
         const zipcodeError = this.validateZipcode();
         const typeError = this.validateTypeOfFood();
+        const { error } = this.state
+        
+        if(this.state.error) {
+            console.log(error)
+            return <h1>{error.error.message}. Please refresh.</h1>
+        }
 
         return (
             <div>
