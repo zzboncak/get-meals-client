@@ -421,7 +421,7 @@ class AddPage extends React.Component {
                                 name='website'
                                 id='website'
                                 value={this.state.website.value}
-                                className='place-form__6input'
+                                className='place-form__input'
                                 onChange={e => this.onWebsiteChange(e.target.value)}
                             />
                         </div>

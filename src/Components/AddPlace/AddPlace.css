@@ -1,6 +1,6 @@
 .add-location-form {
     background: #fa9843;
-    width: 75%;
+    width: 50vw;
     padding: 40px;
     margin: 0 auto;
     border-radius: 8px;
@@ -35,28 +35,8 @@ label {
 }
 
 .place-form__label {
-    display: flex;
-    flex-direction: row;
-    text-align: left;
-    /* padding: 0px 0px; */
-    /* margin: 0px 64px; */
-    flex: 1 1;
+    display: inline-block;
 }
-
-.place-form__input {
-    display: flex;
-    flex-direction: row;
-    text-align: right;
-    flex: 1 1;
-}
-
-.place-form__inputs {
-    display: flex;
-    flex-direction: row;
-    flex: 1 1;
-}
-
-
 
 span {
     color: #af0303
@@ -135,6 +115,33 @@ button:active {
     .place-form__label {
         margin: 0px 64px;
     }
+
+    .add-location-form {
+        width: 60vw;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .place-form__label {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        flex: 1 1;
+    }
+    
+    /* this standardize the input size */
+    .place-form__input {
+        display: flex;
+        flex-direction: row;
+        text-align: right;
+        flex: 1 1;
+    }
+    
+    .place-form__inputs {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1;
+    }
 }
 
 @media screen and (min-width: 1600px) {
@@ -142,5 +149,9 @@ button:active {
         display: flex;
         flex-direction: row;
         flex: 1 1;
+    }
+
+    .add-location-form {
+        width: 75vw;
     }
 }
