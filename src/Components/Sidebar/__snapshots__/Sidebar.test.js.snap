@@ -14,12 +14,12 @@ exports[`Sidebar component renders the component as expected 1`] = `
       <label
         htmlFor="sidebar-form__label"
       >
-        Search by address:
+        Search by address, city, or zip code:
       </label>
       <input
         className="sidebar-form__input"
         id="address"
-        placeholder="seattle"
+        placeholder="New York, NY"
         required={true}
         type="text"
       />

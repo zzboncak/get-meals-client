@@ -1,6 +1,6 @@
 .add-location-form {
     background: #fa9843;
-    width: 75%;
+    width: 50vw;
     padding: 40px;
     margin: 0 auto;
     border-radius: 8px;
@@ -11,13 +11,21 @@
     flex: 1 1;
 }
 
-h2, h4 {
-    text-align: center;
+.add-location-header {
+    padding: 0px 10px;
+}
+
+.add-location {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Ubuntu';
+    padding-top: 25px;
 }
 
 form {
     margin: 20px 100px;
-    padding: 20px 75px;
+    padding: 20px 5px;
     text-align: center;
 }
 
@@ -28,28 +36,8 @@ label {
 }
 
 .place-form__label {
-    display: flex;
-    flex-direction: row;
-    text-align: left;
-    /* padding: 0px 0px; */
-    margin: 0px 64px;
-    flex: 1 1;
+    display: inline-block;
 }
-
-.place-form__input {
-    display: flex;
-    flex-direction: row;
-    text-align: right;
-    flex: 1 1;
-}
-
-.place-form__inputs {
-    display: flex;
-    flex-direction: row;
-    flex: 1 1;
-}
-
-
 
 span {
     color: #af0303
@@ -97,7 +85,7 @@ span {
     outline: none;
 }
 
-button {
+.place-form__button-submit {
     margin-top:10px;
     height: auto;
     font-size: 20px;
@@ -111,7 +99,12 @@ button {
     border-radius:3px;
     padding: 10px 20px;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
-  }
+}
+
+button:disabled {
+    background: gray;
+    pointer-events: none;
+}
 
 button:hover,
 button:active {
@@ -119,10 +112,45 @@ button:active {
     background: #7a3700;
 }
 
-@media screen and (min-width: 320px) {
+.add-location-form-error-message {
+    color: red;
+}
+
+@media screen and (min-width: 400px) {
     .place-form__days {
         display: flex;
         flex-direction: column;
+        flex: 1 1;
+    }
+
+    .place-form__label {
+        margin: 0px 64px;
+    }
+
+    .add-location-form {
+        width: 60vw;
+    }
+}
+
+@media screen and (min-width: 760px) {
+    .place-form__label {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        flex: 1 1;
+    }
+    
+    /* this standardize the input size */
+    .place-form__input {
+        display: flex;
+        flex-direction: row;
+        text-align: right;
+        flex: 1 1;
+    }
+    
+    .place-form__inputs {
+        display: flex;
+        flex-direction: row;
         flex: 1 1;
     }
 }
@@ -132,5 +160,9 @@ button:active {
         display: flex;
         flex-direction: row;
         flex: 1 1;
+    }
+
+    .add-location-form {
+        width: 75vw;
     }
 }

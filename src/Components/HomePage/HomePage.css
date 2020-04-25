@@ -1,3 +1,23 @@
+.app-description {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Ubuntu';
+}
+
+.hero-header {
+    font-family: 'Kreon';
+}
+
+.home-page__section {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
 .map {
     width: 100%;
 }
@@ -5,4 +25,15 @@
 img.map {
     width: 100%;
     overflow: hidden;
+}
+
+@media screen and (min-width: 400px) {
+    .home-page__section {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .map {
+        width: 75%
+    }
 }

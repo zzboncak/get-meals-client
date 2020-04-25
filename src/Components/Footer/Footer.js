@@ -11,7 +11,7 @@ class Footer extends Component {
                         Thinkful Fullstack Capstone Project                  
                     </section>
                     <section> 
-                        <Link to='/About'>About Us</Link>
+                        <Link to='/About' style={{ textDecoration: 'none' }}>About Us</Link>
                     </section>
                 </div>
             </>
