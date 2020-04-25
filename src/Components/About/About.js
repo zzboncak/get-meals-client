@@ -1,6 +1,7 @@
 import React from 'react';
 import './About.css';
 import placeholder from './placeholder.jpg'
+import VictoriaM from './VictoriaM.jpeg'
 import ZackZ from './ZackZ.jpeg'
 
 class About extends React.Component {
@@ -17,7 +18,6 @@ class About extends React.Component {
 
         </div>
 
-
         <div className="parentView">
 
           <div className="item">
@@ -30,6 +30,7 @@ class About extends React.Component {
 
 
             <p>John is a bioengineer transitioning to the software development world. He's just a nerd. When he has free time, John can be found doing something active outdoors (e.g. hiking a 14er, snowboarding). He is currently based out of Denver, CO.</p>
+
           </div>
 
 
@@ -38,7 +39,7 @@ class About extends React.Component {
             <h2>Victoria</h2>
 
             <img
-              src={placeholder}
+              src={VictoriaM}
               alt="avatar"
               className="avatar-image" />
 

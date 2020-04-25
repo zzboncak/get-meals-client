@@ -8,6 +8,7 @@
     border: 2px solid #ce7a30;
     justify-content: center;
     display: flex;
+    flex: 1 1;
 }
 
 .add-location-header {
@@ -48,6 +49,16 @@ span {
     text-align: left;
     /* padding: 0px 0px; */
     margin: 0px 64px;
+    padding: 8px 48px;
+    width: 75%;
+    flex: 1 1;
+}
+
+.place-form__time-input {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 64px;
+    padding: 0px 48px;
     flex: 1 1;
 }
 
