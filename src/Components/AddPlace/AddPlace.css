@@ -1,6 +1,6 @@
 .add-location-form {
     background: #fa9843;
-    width: 50vw;
+    width: 60vw;
     padding: 40px;
     margin: 0 auto;
     border-radius: 8px;
@@ -116,7 +116,11 @@ button:active {
     color: red;
 }
 
-@media screen and (min-width: 400px) {
+.place-form__start {
+    text-align: left;
+}
+
+@media screen and (min-width: 500px) {
     .place-form__days {
         display: flex;
         flex-direction: column;
