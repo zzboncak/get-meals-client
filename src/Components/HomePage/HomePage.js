@@ -6,9 +6,6 @@ import GetMealsContext from '../../GetMealsContext';
 
 
 class HomePage extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     static contextType = GetMealsContext;
 

@@ -25,12 +25,20 @@ Array [
         John
       </h2>
       <img
-        alt="avatar"
+        alt="John's picture"
         className="avatar-image"
-        src="placeholder.jpg"
+        src="JohnL.jpeg"
       />
       <p>
-        John is a bioengineer transitioning to the software development world. He's just a nerd. When he has free time, John can be found doing something active outdoors (e.g. hiking a 14er, snowboarding). He is currently based out of Denver, CO.
+        John is a bioengineer transitioning to the software development world. He's just a nerd. When he has free time, John can be found doing something active outdoors (e.g. hiking a 14er, snowboarding). He is currently based out of Denver, CO. 
+        <a
+          href="https://johlee92.github.io/personalPortfolio/"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          Here
+        </a>
+         is his portfolio.
       </p>
     </div>
     <div
@@ -40,9 +48,9 @@ Array [
         Victoria
       </h2>
       <img
-        alt="avatar"
+        alt="Victoria's picture"
         className="avatar-image"
-        src="placeholder.jpg"
+        src="VictoriaM.jpeg"
       />
       <p>
         About text here.
@@ -55,7 +63,7 @@ Array [
         Sejin
       </h2>
       <img
-        alt="avatar"
+        alt="Sejin's picture"
         className="avatar-image"
         src="placeholder.jpg"
       />
@@ -70,7 +78,7 @@ Array [
         Zack
       </h2>
       <img
-        alt="avatar"
+        alt="Zach's picture"
         className="avatar-image"
         src="ZackZ.jpeg"
       />
@@ -93,7 +101,7 @@ Array [
         Peggy
       </h2>
       <img
-        alt="avatar"
+        alt="Peggy's picture"
         className="avatar-image"
         src="placeholder.jpg"
       />

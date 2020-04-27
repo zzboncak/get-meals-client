@@ -50,6 +50,10 @@ class AddPage extends React.Component {
                 value: 'Food Bank',
                 isTouched: false
             },
+            description: {
+                value: '',
+                isTouched: false
+            },
             submitButtonStatus: '',
             error: null,
         }
@@ -57,31 +61,8 @@ class AddPage extends React.Component {
 
     static contextType = GetMealsContext;
 
-    generatePlaceId = () => {
-        let placeId = Math.ceil(Math.random() * 1000000);
-        return placeId;
-    }
-
     handleSubmitAddPlace = (e) => {
         e.preventDefault();
-
-
-        // if (!!(this.validatePlaceName() ||
-        //     this.validatePlaceAddress() ||
-        //     this.validateCity() ||
-        //     this.validateUsState() ||
-        //     this.validateZipcode() ||
-        //     this.validateTypeOfFood())) {
-        //         console.log(this.validatePlaceName())
-        //         console.log(this.validatePlaceAddress())
-        //         console.log(this.validateCity())
-        //         console.log(this.validateUsState())
-        //         console.log(this.validateZipcode())
-        //         console.log(this.validateTypeOfFood())
-        //         console.log('there is an error, please fix')
-        //         return
-        // }
-
 
         let newLocation = {
             location_name: this.state.name.value,
@@ -91,10 +72,10 @@ class AddPage extends React.Component {
             zip: this.state.zipcode.value,
             website: this.state.website.value,
             open_hour: this.state.openHours.value,
-            close_hour: this.state.closeHours.value
+            close_hour: this.state.closeHours.value,
+            location_description: this.state.description.value,
+            location_type: this.state.typeOfFood.value
         };
-
-        console.log(newLocation)
 
         this.context.getGooglePlaceID(this.state.placeAddress.value + ' ' + this.state.city.value + ' ' + this.state.usState.value + ' ' + this.state.zipcode.value)
 
@@ -155,6 +136,10 @@ class AddPage extends React.Component {
                         value: '',
                         isTouched: false
                     },
+                    description: {
+                        value: '',
+                        isTouched: false
+                    }
                 });
                 this.context.locationFetch();
                 this.props.history.push('/');
@@ -255,6 +240,15 @@ class AddPage extends React.Component {
         });
     }
 
+    onDescriptionChange = (description) => {
+        this.setState({
+            description: {
+                value: description,
+                isTouched: true
+            }
+        });
+    }
+
     validatePlaceName() {
         const name = this.state.name.value.trim()
         if(name.length === 0 || name.length < 3){
@@ -283,13 +277,6 @@ class AddPage extends React.Component {
         }
     }
 
-    // validateWebsite() {
-    //     const website = this.state.website.value.trim()
-    //     if (website.length === 0) {
-    //         return 'You need to enter a website'
-    //     }
-    // }
-
     validateZipcode() {
         const zipcode = this.state.zipcode.value.trim()
         if (zipcode.length === 0 || zipcode.length !== 5 ) {
@@ -298,19 +285,6 @@ class AddPage extends React.Component {
             return 'Zipcode must be a number'
         }
     }
-
-    // validateHoursOfOperation() {
-    //     if (this.state.hourOfOperation.value === '') {
-    //         return 'You must select hours of operation'
-    //     }
-    // }
-
-    // Removed the Date of Operation functionality
-    // validateDateOfOperation() {
-    //     if (this.state.hourOfOperation === '') {
-    //         return 'You must select date of operation'
-    //     }
-    // }
 
     validateTypeOfFood() {
         const typeOfFood = this.state.typeOfFood.value.trim()
@@ -401,7 +375,7 @@ class AddPage extends React.Component {
                         <br />
 
                         <div className='place-form__inputs'>
-                            <label htmlFor='zipcode' className='place-form__state place-form__label'>Zipcode:<span>*</span> </label>
+                            <label htmlFor='zipcode' className='place-form__state place-form__label'>Zip code:<span>*</span> </label>
                             <input
                                 type='number'
                                 name='zipcode'
@@ -465,6 +439,20 @@ class AddPage extends React.Component {
                         <br />
                         <br />
 
+                        <div className='place-form__inputs'>
+                            <label htmlFor='description' className='place-form__description place-form__label'>Location Description: </label>
+                            <input
+                                type='textfield'
+                                name='description'
+                                id='description'
+                                value={this.state.description.value}
+                                className='place-form__input'
+                                onChange={e => this.onDescriptionChange(e.target.value)}
+                            />
+                        </div>
+                        <br />
+                        <br />
+                            
                         <button
                             type='submit'
                             className='place-form__button-submit'

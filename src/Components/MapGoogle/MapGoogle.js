@@ -9,7 +9,7 @@ const MapGoogle = withScriptjs(
 
             <GoogleMap
                 defaultZoom={9}
-                defaultCenter={{ lat: 37.0902, lng: -95.7129 }} //map centere with inital laod
+                defaultCenter={{ lat: 37.0902, lng: -95.7129 }} //map center with inital load
                 center={{ lat: props.latlonArray[0], lng: props.latlonArray[1] }} //centers onto searched location
             >
 
@@ -46,6 +46,7 @@ const MapGoogle = withScriptjs(
                             <div> Address: {`${selectedLocation.street_address} ${selectedLocation.city} ${selectedLocation.state} ${selectedLocation.zip}`} </div>
                             <div> Website: <a href={selectedLocation.website}>{selectedLocation.website}</a> </div>
                             <div> Description: {selectedLocation.location_description} </div>
+                            <div> Location Type: {selectedLocation.location_type} </div>
 
                         </>
                     </InfoWindow>
