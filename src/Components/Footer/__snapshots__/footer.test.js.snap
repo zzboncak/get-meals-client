@@ -11,6 +11,11 @@ exports[`Footer component renders the Header component as expected 1`] = `
     <a
       href="/About"
       onClick={[Function]}
+      style={
+        Object {
+          "textDecoration": "none",
+        }
+      }
     >
       About Us
     </a>

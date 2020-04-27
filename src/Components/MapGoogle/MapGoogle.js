@@ -9,12 +9,12 @@ const MapGoogle = withScriptjs(
 
             <GoogleMap
                 defaultZoom={9}
-                defaultCenter={{ lat: 37.0902, lng: -95.7129 }}
-                center={{ lat: props.latlonArray[0], lng: props.latlonArray[1] }}
+                defaultCenter={{ lat: 37.0902, lng: -95.7129 }} //map centere with inital laod
+                center={{ lat: props.latlonArray[0], lng: props.latlonArray[1] }} //centers onto searched location
             >
 
                 {props.locations.map(coordinates => (
-
+                    //maps through database to create markers for each location
                     <Marker
                         key={coordinates.id}
                         position={{
@@ -28,9 +28,10 @@ const MapGoogle = withScriptjs(
 
                     />
                 ))}
-
-                {selectedLocation && (
-                    <InfoWindow
+                
+                
+                {selectedLocation && ( 
+                    <InfoWindow //simple popup window on each marker that shows information about location using information from database
                         position={{
                             lat: selectedLocation.location_latitude,
                             lng: selectedLocation.location_longitude

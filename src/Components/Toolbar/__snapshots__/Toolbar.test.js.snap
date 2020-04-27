@@ -24,15 +24,11 @@ exports[`Toolbar component renders the component as expected 1`] = `
         />
       </button>
     </div>
-    <div
-      className="toolbar_logo"
-    >
-      <a
-        href="/"
-      >
-        GET MEALS
-      </a>
-    </div>
+    <img
+      alt="logo"
+      className="logo-image"
+      src="Logo.png"
+    />
     <div
       className="spacer"
     />

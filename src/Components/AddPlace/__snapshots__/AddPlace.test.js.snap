@@ -2,12 +2,16 @@
 
 exports[`AddPlace component renders the component as expected 1`] = `
 <div>
-  <h2>
-    This is where you come in!
-  </h2>
-  <h4>
-    We ask that if you know of any locations that provide free meals to add the contact information so that other users can easily find food by just searching a city in the US
-  </h4>
+  <section
+    className="add-location-header"
+  >
+    <h2>
+      This is where you come in!
+    </h2>
+    <h4>
+      We ask that if you know of any locations that provide free meals to add the contact information so that other users can easily find food by just searching a city in the US
+    </h4>
+  </section>
   <div
     className="add-location-form"
   >
@@ -155,7 +159,7 @@ exports[`AddPlace component renders the component as expected 1`] = `
           Website: 
         </label>
         <input
-          className="place-form__6input"
+          className="place-form__input"
           id="website"
           name="website"
           onChange={[Function]}
@@ -221,7 +225,6 @@ exports[`AddPlace component renders the component as expected 1`] = `
           >
             <option
               className="place-form__location-type"
-              selected={true}
               value="Food Bank"
             >
               Food Bank
@@ -254,6 +257,7 @@ exports[`AddPlace component renders the component as expected 1`] = `
       <br />
       <button
         className="place-form__button-submit"
+        disabled="You must enter a location name that is longer than 3 characters"
         type="submit"
       >
         Add this location

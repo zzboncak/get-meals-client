@@ -1,6 +1,6 @@
 .add-location-form {
     background: #fa9843;
-    width: 75%;
+    width: 60vw;
     padding: 40px;
     margin: 0 auto;
     border-radius: 8px;
@@ -8,6 +8,11 @@
     border: 2px solid #ce7a30;
     justify-content: center;
     display: flex;
+    flex: 1 1;
+}
+
+.add-location-header {
+    padding: 0px 10px;
 }
 
 .add-location {
@@ -20,7 +25,7 @@
 
 form {
     margin: 20px 100px;
-    padding: 20px 75px;
+    padding: 20px 5px;
     text-align: center;
 }
 
@@ -31,28 +36,8 @@ label {
 }
 
 .place-form__label {
-    display: flex;
-    flex-direction: row;
-    text-align: left;
-    /* padding: 0px 0px; */
-    margin: 0px 64px;
-    flex: 1 1;
+    display: inline-block;
 }
-
-.place-form__input {
-    display: flex;
-    flex-direction: row;
-    text-align: right;
-    flex: 1 1;
-}
-
-.place-form__inputs {
-    display: flex;
-    flex-direction: row;
-    flex: 1 1;
-}
-
-
 
 span {
     color: #af0303
@@ -64,6 +49,16 @@ span {
     text-align: left;
     /* padding: 0px 0px; */
     margin: 0px 64px;
+    padding: 8px 48px;
+    width: 75%;
+    flex: 1 1;
+}
+
+.place-form__time-input {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 64px;
+    padding: 0px 48px;
     flex: 1 1;
 }
 
@@ -90,7 +85,7 @@ span {
     outline: none;
 }
 
-button {
+.place-form__button-submit {
     margin-top:10px;
     height: auto;
     font-size: 20px;
@@ -104,7 +99,12 @@ button {
     border-radius:3px;
     padding: 10px 20px;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
-  }
+}
+
+button:disabled {
+    background: gray;
+    pointer-events: none;
+}
 
 button:hover,
 button:active {
@@ -116,10 +116,45 @@ button:active {
     color: red;
 }
 
-@media screen and (min-width: 320px) {
+.place-form__start {
+    text-align: left;
+}
+
+@media screen and (min-width: 500px) {
     .place-form__days {
         display: flex;
         flex-direction: column;
+        flex: 1 1;
+    }
+
+    .place-form__label {
+        margin: 0px 64px;
+    }
+
+    .add-location-form {
+        width: 60vw;
+    }
+}
+
+@media screen and (min-width: 760px) {
+    .place-form__label {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        flex: 1 1;
+    }
+    
+    /* this standardize the input size */
+    .place-form__input {
+        display: flex;
+        flex-direction: row;
+        text-align: right;
+        flex: 1 1;
+    }
+    
+    .place-form__inputs {
+        display: flex;
+        flex-direction: row;
         flex: 1 1;
     }
 }
@@ -129,5 +164,9 @@ button:active {
         display: flex;
         flex-direction: row;
         flex: 1 1;
+    }
+
+    .add-location-form {
+        width: 75vw;
     }
 }

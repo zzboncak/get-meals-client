@@ -1,7 +1,6 @@
 import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import './HomePage.css';
-import mapSample from '../Util/map.png';
 import Maps from '../Map/Map';
 import GetMealsContext from '../../GetMealsContext';
 
