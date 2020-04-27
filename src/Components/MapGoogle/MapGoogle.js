@@ -45,6 +45,7 @@ const MapGoogle = withScriptjs(
                             <div> Address: {`${selectedLocation.street_address} ${selectedLocation.city} ${selectedLocation.state} ${selectedLocation.zip}`} </div>
                             <div> Website: <a href={selectedLocation.website}>{selectedLocation.website}</a> </div>
                             <div> Description: {selectedLocation.location_description} </div>
+                            <div> Location Type: {selectedLocation.location_type} </div>
 
                         </>
                     </InfoWindow>
