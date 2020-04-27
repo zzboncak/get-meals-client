@@ -30,13 +30,4 @@ describe(`Header component`, () => {
         expect(tree).toMatchSnapshot();  
     });
 
-    // it('renders a Header component by default', () => {
-    //     const wrapper = shallow(<Header />)
-    //     expect(toJson(wrapper)).toMatchSnapshot()
-    // })
-
-    // it('renders the Header component from props', () => {
-    //     const wrapper = shallow(<Header {...props} />)
-    //     expect(toJson(wrapper)).toMatchSnapshot()
-    // })
 })

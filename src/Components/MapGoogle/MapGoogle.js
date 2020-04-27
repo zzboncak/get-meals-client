@@ -9,7 +9,7 @@ const MapGoogle = withScriptjs(
 
             <GoogleMap
                 defaultZoom={9}
-                defaultCenter={{ lat: 37.0902, lng: -95.7129 }} //map centere with inital laod
+                defaultCenter={{ lat: 37.0902, lng: -95.7129 }} //map center with inital load
                 center={{ lat: props.latlonArray[0], lng: props.latlonArray[1] }} //centers onto searched location
             >
 

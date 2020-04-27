@@ -61,31 +61,8 @@ class AddPage extends React.Component {
 
     static contextType = GetMealsContext;
 
-    generatePlaceId = () => {
-        let placeId = Math.ceil(Math.random() * 1000000);
-        return placeId;
-    }
-
     handleSubmitAddPlace = (e) => {
         e.preventDefault();
-
-
-        // if (!!(this.validatePlaceName() ||
-        //     this.validatePlaceAddress() ||
-        //     this.validateCity() ||
-        //     this.validateUsState() ||
-        //     this.validateZipcode() ||
-        //     this.validateTypeOfFood())) {
-        //         console.log(this.validatePlaceName())
-        //         console.log(this.validatePlaceAddress())
-        //         console.log(this.validateCity())
-        //         console.log(this.validateUsState())
-        //         console.log(this.validateZipcode())
-        //         console.log(this.validateTypeOfFood())
-        //         console.log('there is an error, please fix')
-        //         return
-        // }
-
 
         let newLocation = {
             location_name: this.state.name.value,
@@ -99,8 +76,6 @@ class AddPage extends React.Component {
             location_description: this.state.description.value,
             location_type: this.state.typeOfFood.value
         };
-
-        console.log(newLocation)
 
         this.context.getGooglePlaceID(this.state.placeAddress.value + ' ' + this.state.city.value + ' ' + this.state.usState.value + ' ' + this.state.zipcode.value)
 
@@ -124,7 +99,6 @@ class AddPage extends React.Component {
                 return res.json();
             })
             .then(data => {
-                console.log(data);
                 this.setState({
                     name: {
                         value: '',
@@ -303,13 +277,6 @@ class AddPage extends React.Component {
         }
     }
 
-    // validateWebsite() {
-    //     const website = this.state.website.value.trim()
-    //     if (website.length === 0) {
-    //         return 'You need to enter a website'
-    //     }
-    // }
-
     validateZipcode() {
         const zipcode = this.state.zipcode.value.trim()
         if (zipcode.length === 0 || zipcode.length !== 5 ) {
@@ -318,19 +285,6 @@ class AddPage extends React.Component {
             return 'Zipcode must be a number'
         }
     }
-
-    // validateHoursOfOperation() {
-    //     if (this.state.hourOfOperation.value === '') {
-    //         return 'You must select hours of operation'
-    //     }
-    // }
-
-    // Removed the Date of Operation functionality
-    // validateDateOfOperation() {
-    //     if (this.state.hourOfOperation === '') {
-    //         return 'You must select date of operation'
-    //     }
-    // }
 
     validateTypeOfFood() {
         const typeOfFood = this.state.typeOfFood.value.trim()
