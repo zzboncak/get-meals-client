@@ -3,8 +3,8 @@ import './About.css';
 import placeholder from './placeholder.jpg'
 import VictoriaM from './VictoriaM.jpeg'
 import ZackZ from './ZackZ.jpeg'
+import PeggyS from './PeggyS.jpg'
 import JohnL from './JohnL.jpeg'
-
 
 class About extends React.Component {
   render() {
@@ -77,12 +77,12 @@ class About extends React.Component {
             <h2>Peggy</h2>
 
             <img
-              src={placeholder}
-              alt="Peggy Sturman"
+              src={PeggyS}
+              alt="avatar"
               className="avatar-image" />
 
 
-            <p>About text here.</p>
+            <p>Peggy is a Senior QA Engineer whose main goal for every project that she works on is being an advocate for the user. In her spare time she enjoys cooking plant based meals, running and seeing as much live music as possible.</p>
           </div>
 
         </div>
