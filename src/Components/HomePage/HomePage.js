@@ -23,6 +23,7 @@ class HomePage extends React.Component {
     }
 
     render() {
+        console.log(this.context.locations);
         return (
             <div>
                 <section className="app-description">
