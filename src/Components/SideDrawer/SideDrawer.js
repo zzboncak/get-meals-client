@@ -10,11 +10,13 @@ const sideDrawer = props => {
   }
   return (
     <nav className={drawerClasses}>
-<ul>
-  <li><NavLink to="/">Home</NavLink></li>
-  <li><NavLink to="/add-location">Add Location</NavLink></li>
-  <li><NavLink to="/About">About Us</NavLink></li>
-</ul>
-</nav>);
+      <ul>
+        <li><NavLink to="/" onClick={props.drawerClickHandler}>Home</NavLink></li>
+        <li><NavLink to="/add-location" onClick={props.drawerClickHandler}>Add Location</NavLink></li>
+        <li><NavLink to="/About" onClick={props.drawerClickHandler}>About Us</NavLink></li>
+      </ul>
+    </nav>
+);
 };
+
 export default sideDrawer;

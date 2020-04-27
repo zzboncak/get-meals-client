@@ -129,7 +129,7 @@ class App extends React.Component {
       <React.Fragment>
         <div style={{ height: '100%' }}>
           <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-          <SideDrawer show={this.state.sideDrawerOpen} />
+          <SideDrawer show={this.state.sideDrawerOpen} drawerClickHandler={this.drawerToggleClickHandler} />
           {backdrop}
         </div>
 
