@@ -3,9 +3,6 @@ import "./Sidebar.css";
 import GetMealsContext from '../../GetMealsContext';
 
 class Sidebar extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     static contextType = GetMealsContext;
 

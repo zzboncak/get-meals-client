@@ -27,7 +27,7 @@ class About extends React.Component {
 
             <img
               src={JohnL}
-              alt="John's picture"
+              alt="John Lee"
               className="avatar-image" />
 
 
@@ -42,7 +42,7 @@ class About extends React.Component {
 
             <img
               src={VictoriaM}
-              alt="Victoria's picture"
+              alt="Victoria Moore"
               className="avatar-image" />
 
 
@@ -54,7 +54,7 @@ class About extends React.Component {
 
             <img
               src={placeholder}
-              alt="Sejin's picture"
+              alt="Sejin Hwang"
               className="avatar-image" />
 
 
@@ -66,7 +66,7 @@ class About extends React.Component {
 
             <img
               src={ZackZ}
-              alt="Zach's picture"
+              alt="Zack Zboncak"
               className="avatar-image" />
 
 
@@ -78,7 +78,7 @@ class About extends React.Component {
 
             <img
               src={placeholder}
-              alt="Peggy's picture"
+              alt="Peggy Sturman"
               className="avatar-image" />
 
 
