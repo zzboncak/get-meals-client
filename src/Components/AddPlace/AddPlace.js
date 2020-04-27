@@ -398,7 +398,7 @@ class AddPage extends React.Component {
                         <br />
 
                         <div className='place-form__inputs'>
-                            <label htmlFor='zipcode' className='place-form__state place-form__label'>Zipcode:<span>*</span> </label>
+                            <label htmlFor='zipcode' className='place-form__state place-form__label'>Zip code:<span>*</span> </label>
                             <input
                                 type='number'
                                 name='zipcode' 
@@ -465,6 +465,7 @@ class AddPage extends React.Component {
                         <div className='place-form__inputs'>
                             <label htmlFor='description' className='place-form__description place-form__label'>Location Description: </label>
                             <input
+                                type='textfield'
                                 name='description'
                                 id='description'
                                 value={this.state.description.value}
