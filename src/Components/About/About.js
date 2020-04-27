@@ -3,6 +3,8 @@ import './About.css';
 import placeholder from './placeholder.jpg'
 import VictoriaM from './VictoriaM.jpeg'
 import ZackZ from './ZackZ.jpeg'
+import JohnL from './JohnL.jpeg'
+
 
 class About extends React.Component {
   render() {
@@ -24,12 +26,12 @@ class About extends React.Component {
             <h2>John</h2>
 
             <img
-              src={placeholder}
-              alt="avatar"
+              src={JohnL}
+              alt="John's picture"
               className="avatar-image" />
 
 
-            <p>John is a bioengineer transitioning to the software development world. He's just a nerd. When he has free time, John can be found doing something active outdoors (e.g. hiking a 14er, snowboarding). He is currently based out of Denver, CO.</p>
+            <p>John is a bioengineer transitioning to the software development world. He's just a nerd. When he has free time, John can be found doing something active outdoors (e.g. hiking a 14er, snowboarding). He is currently based out of Denver, CO. <a href="https://johlee92.github.io/personalPortfolio/" target="_blank" rel='noreferrer noopener'>Here</a> is his portfolio.</p>
 
           </div>
 
@@ -40,7 +42,7 @@ class About extends React.Component {
 
             <img
               src={VictoriaM}
-              alt="avatar"
+              alt="Victoria's picture"
               className="avatar-image" />
 
 
@@ -52,7 +54,7 @@ class About extends React.Component {
 
             <img
               src={placeholder}
-              alt="avatar"
+              alt="Sejin's picture"
               className="avatar-image" />
 
 
@@ -64,7 +66,7 @@ class About extends React.Component {
 
             <img
               src={ZackZ}
-              alt="avatar"
+              alt="Zach's picture"
               className="avatar-image" />
 
 
@@ -76,7 +78,7 @@ class About extends React.Component {
 
             <img
               src={placeholder}
-              alt="avatar"
+              alt="Peggy's picture"
               className="avatar-image" />
 
 
