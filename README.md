@@ -12,10 +12,6 @@ Get Meals was created by a group of students at Thinkful who all of the like min
 
 [API Documentation](https://github.com/zzboncak/get-meals-api/tree/development)
 
-# Screenshots
-
-To be added when Styling is complete.
-
 # Technologies Used
 
 **Front End**
@@ -29,19 +25,27 @@ To be added when Styling is complete.
 * Express
 * PostgreSQL
 
+# Screenshots
 
-# Required Items for ReadMe
+**GetMeals Main Page: Full Screen**
 
-**To be deleted when ReadMe is complete.**
 
-[X] The name of your app at the top of the file.  
+![Full Screen](https://user-images.githubusercontent.com/2112717/80417761-1efdc280-888b-11ea-8c8b-235a578e3ab5.JPG)
 
-[X] A link to your live app. 
+**GetMeals Main Page: Mobile**
 
-[   ]  Screenshot(s) of your app. This makes your app description much easier to understand. 
 
-[X]  Documentation of your API.  
+![Mobile](https://user-images.githubusercontent.com/2112717/80417763-1f965900-888b-11ea-9672-5cd0e79345d2.jpg)
 
-[X]  A summary section. This should have a concise explanation of what your app does. Try to frame this from the standpoint of what the user does, or what the app enables for the user. 
 
-[X]  A section on the technology used.
+**GetMeals Add Location Page: Full Screen**
+
+
+![Full Screen](https://user-images.githubusercontent.com/2112717/80417757-1e652c00-888b-11ea-9cd1-dea43cda9b4c.jpg)
+
+**GetMeals Add Location Page: Mobile**
+
+
+![Mobile](https://user-images.githubusercontent.com/2112717/80417759-1efdc280-888b-11ea-928f-3864d37183fb.jpg)
+
+

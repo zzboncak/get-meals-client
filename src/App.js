@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/Header/Header';
 import HomePage from './Components/HomePage/HomePage';
 import Footer from './Components/Footer/Footer';
 import { Route } from 'react-router-dom';
@@ -22,7 +21,6 @@ class App extends React.Component {
     }
   }
 
-  // start code added by Peggy for the Nav Bar.
   drawerToggleClickHandler = () => {
     this.setState((prevState) => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
@@ -32,7 +30,6 @@ class App extends React.Component {
   backdropClickHandler = () => {
     this.setState({ sideDrawerOpen: false });
   };
-  // End Code added by Peggy for the Nav Bar
 
   locationFetch = () => {
     fetch('https://frozen-everglades-23155.herokuapp.com/api/locations')
@@ -51,7 +48,6 @@ class App extends React.Component {
 
   // get the lat and lng values from the place ID
   getLatlng = (placeIdInput) => {
-    //potential firewall situation with using a work laptop. Still need to determine the why
     const proxyurl = "https://cors-anywhere.herokuapp.com/"
     const searchUrl = 'https://maps.googleapis.com/maps/api/geocode/json'
 
@@ -85,7 +81,6 @@ class App extends React.Component {
 
   // get the place ID from the user input address
   getGooglePlaceID = (userInput) => {
-    //potential firewall situation with using a work laptop. Still need to determine the why
     const proxyurl = "https://cors-anywhere.herokuapp.com/"
     const searchUrl = 'https://maps.googleapis.com/maps/api/place/autocomplete/json'
 
@@ -115,12 +110,10 @@ class App extends React.Component {
 
   render() {
 
-    // Start code added by Peggy for the Nav Bar
     let backdrop;
     if (this.state.sideDrawerOpen) {
       backdrop = <Backdrop click={this.backdropClickHandler} />
     }
-    //  End code added by Peggy for the Nav Bar
 
     const contextValue = {
       locations: this.state.locations,
@@ -133,14 +126,12 @@ class App extends React.Component {
 
     return (
 
-      // Start code added by Peggy for the Nav Bar
       <React.Fragment>
         <div style={{ height: '100%' }}>
           <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-          <SideDrawer show={this.state.sideDrawerOpen} />
+          <SideDrawer show={this.state.sideDrawerOpen} drawerClickHandler={this.drawerToggleClickHandler} />
           {backdrop}
         </div>
-        {/* // End Code added by Peggy for the Nav Bar */}
 
         <div className="App">
           <GetMealsContext.Provider value={contextValue}>
