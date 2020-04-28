@@ -44,7 +44,7 @@ class About extends React.Component {
               className="avatar-image" />
 
 
-            <p>About text here.</p>
+            <p>Victoria is aspiring to be a software developer, she is especially looking forward to continuing to expand her knowledge and problem-solving skills that are needed for different areas of development. In her free time, she loves reading, watching films, and occasionally knitting and other crafts.</p>
           </div>
 
           <div className="item">
