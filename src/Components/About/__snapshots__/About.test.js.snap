@@ -25,7 +25,7 @@ Array [
         John
       </h2>
       <img
-        alt="John's picture"
+        alt="John Lee"
         className="avatar-image"
         src="JohnL.jpeg"
       />
@@ -48,12 +48,12 @@ Array [
         Victoria
       </h2>
       <img
-        alt="Victoria's picture"
+        alt="Victoria Moore"
         className="avatar-image"
         src="VictoriaM.jpeg"
       />
       <p>
-        About text here.
+        Victoria is aspiring to be a software developer, she is especially looking forward to continuing to expand her knowledge and problem-solving skills that are needed for different areas of development. In her free time, she loves reading, watching films, and occasionally knitting and other crafts.
       </p>
     </div>
     <div
@@ -63,7 +63,7 @@ Array [
         Sejin
       </h2>
       <img
-        alt="Sejin's picture"
+        alt="Sejin Hwang"
         className="avatar-image"
         src="placeholder.jpg"
       />
@@ -78,7 +78,7 @@ Array [
         Zack
       </h2>
       <img
-        alt="Zach's picture"
+        alt="Zack Zboncak"
         className="avatar-image"
         src="ZackZ.jpeg"
       />
@@ -101,12 +101,12 @@ Array [
         Peggy
       </h2>
       <img
-        alt="Peggy's picture"
+        alt="avatar"
         className="avatar-image"
-        src="placeholder.jpg"
+        src="PeggyS.jpg"
       />
       <p>
-        About text here.
+        Peggy is a Senior QA Engineer whose main goal for every project that she works on is being an advocate for the user. In her spare time she enjoys cooking plant based meals, running and seeing as much live music as possible.
       </p>
     </div>
   </div>,

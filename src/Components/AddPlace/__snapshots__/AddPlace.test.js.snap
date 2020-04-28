@@ -129,7 +129,7 @@ exports[`AddPlace component renders the component as expected 1`] = `
           className="place-form__state place-form__label"
           htmlFor="zipcode"
         >
-          Zipcode:
+          Zip code:
           <span>
             *
           </span>
@@ -253,6 +253,26 @@ exports[`AddPlace component renders the component as expected 1`] = `
       <span
         className="add-location-form-error-message"
       />
+      <br />
+      <br />
+      <div
+        className="place-form__inputs"
+      >
+        <label
+          className="place-form__description place-form__label"
+          htmlFor="description"
+        >
+          Location Description: 
+        </label>
+        <input
+          className="place-form__input"
+          id="description"
+          name="description"
+          onChange={[Function]}
+          type="textfield"
+          value=""
+        />
+      </div>
       <br />
       <br />
       <button
