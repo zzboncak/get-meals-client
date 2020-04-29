@@ -5,6 +5,7 @@ import VictoriaM from './VictoriaM.jpeg'
 import ZackZ from './ZackZ.jpeg'
 import PeggyS from './PeggyS.jpg'
 import JohnL from './JohnL.jpeg'
+import SejinH from './SejinH.jpeg'
 
 class About extends React.Component {
   render() {
@@ -53,12 +54,12 @@ class About extends React.Component {
             <h2>Sejin</h2>
 
             <img
-              src={placeholder}
+              src={SejinH}
               alt="Sejin Hwang"
               className="avatar-image" />
 
 
-            <p>About text here.</p>
+            <p>Sejin is a full stack web developer who enjoys the journey of every challenge. He is always looking to learn and improve, whether that through software development, sports, or even a simple youtube video.  You can find him often golfing, playing basketball, or enjoying the great outdoors of the PNW.   </p>
           </div>
 
           <div className="item">
